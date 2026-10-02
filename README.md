@@ -107,7 +107,60 @@ windowrulev2 = workspace 9 silent, class:^(chromium)$
 
 ---
 
-## 🎼 Learning Files Included in this Subproject
+## ⚡ Offline Mode & Eliminating Audio Lag
+
+### Why does complex music lag or stutter?
+When you write patterns with drums and acoustic instruments:
+```javascript
+s("bd [~ sd] bd [sd hh]") // Uses samples: bd, sd, hh
+```
+Strudel streams raw audio sample files **on-demand over HTTP** from GitHub/CDN (`tidalcycles/dirt-samples`).
+- If your internet connection has high latency, packet loss, or poor bandwidth, audio buffers cannot download in time for the audio scheduler's lookahead window (100–200ms).
+- This causes **missed beats, audible jitter, delayed triggers, and stuttering**.
+- Once a sample is downloaded, Chromium's persistent cache (`~/.cache/strudel-nvim`) keeps it on disk, so subsequent loops play smoother — but any new sample or pattern variation triggers more network downloads.
+
+---
+
+### Solutions for Zero Lag & Full Offline Playback
+
+#### Solution 1: Pure Synth Live-Coding (100% Offline by Default)
+WebAudio software oscillators require **zero network downloads** and have **0ms latency**:
+- **Instruments**: `s("sawtooth")`, `s("sine")`, `s("triangle")`, `s("square")`
+- **Modifiers**: `.cutoff()`, `.decay()`, `.resonance()`, `.delay()`, `.room()`
+- Example (see `03_melodic_synths_and_bass.str`):
+  ```javascript
+  note("c2 [eb2 g2] bb2 c3")
+    .s("sawtooth")
+    .lpf(sine.range(400, 3000).slow(4))
+    .resonance(14)
+    .decay(0.2)
+  ```
+*This works flawlessly even with airplane mode turned on!*
+
+#### Solution 2: Local Sample Server with `@strudel/sampler`
+If you need drum kits, acoustic instruments, or custom sound packs without relying on the internet:
+1. Clone or download sample packs onto your machine:
+   ```bash
+   git clone --depth 1 https://github.com/tidalcycles/dirt-samples.git ~/dirt-samples
+   ```
+2. Run the official Strudel sample server:
+   ```bash
+   npx @strudel/sampler ~/dirt-samples
+   ```
+   *(This serves your samples locally on `http://localhost:5432`)*
+3. In your Strudel code (or buffer header):
+   ```javascript
+   samples('http://localhost:5432')
+   s("bd [~ sd] bd [sd hh]")
+   ```
+   All audio is now loaded directly from your SSD with **zero network lag**!
+
+#### Solution 3: Pre-Warming the Sample Cache
+Because `strudel.nvim` stores browser cache persistently in `~/.cache/strudel-nvim`:
+- Run through your performance track once while connected to Wi-Fi before going on stage.
+- All downloaded samples are cached locally for the rest of your session.
+
+---
 
 1. `01_starter_beats.str` — Basic Tidal mini-notation (kicks, snares, hats, subdivisions).
 2. `02_euclidean_and_polyrhythms.str` — Euclidean rhythms `(3,8)`, polymeter `<>`, and speed multipliers.
