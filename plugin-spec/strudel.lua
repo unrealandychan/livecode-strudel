@@ -4,6 +4,16 @@
 
 return {
   "gruvw/strudel.nvim",
+  init = function()
+    -- Automatically recognize .str and .std as javascript so tree-sitter,
+    -- indentation, and comment toggling (gcc / gc) work out of the box!
+    vim.filetype.add({
+      extension = {
+        str = "javascript",
+        std = "javascript",
+      },
+    })
+  end,
   -- Skip downloading bundled Chromium (~300MB) since Arch has /usr/bin/chromium
   build = "PUPPETEER_SKIP_DOWNLOAD=true PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm install puppeteer yargs@latest",
   -- Lazy-load only when opening music files or running Strudel commands

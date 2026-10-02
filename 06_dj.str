@@ -3,107 +3,81 @@
 // =============================================================================
 //
 // 🎛️ CONTROLS:
-//   <leader>ml : :StrudelLaunch (Connect)
-//   <leader>mp : :StrudelToggle (Play / Pause)
-//   <leader>mu : :StrudelUpdate (UPDATE LIVE CHANGES)
+//   <leader>ml : :StrudelLaunch (Connect to Strudel engine)
+//   <leader>mp : :StrudelToggle (Play / Pause audio)
+//   <leader>mu : :StrudelUpdate (UPDATE CHANGES LIVE — Press after uncommenting!)
 //
 // 🎹 LIVE DJ ACTIONS:
-//   gcc        : Uncomment / comment a line (easy single keystroke)
-//   vip + d    : Delete current track to switch to the next one
-//   vip + gc   : Uncomment the next track
+//   gcc        : Toggle comment on current line (introduce / mute layer with 1 tap)
+//   vip then d : Delete current song paragraph to make room for next song
+//   vip then gc: Uncomment next song block instantly
 // =============================================================================
 
 
 // =============================================================================
-// 🌙 SONG 1: CHILL DUB (Slow — 100 CPM)
+// 🌙 SONG 1: CHILL DUB (Slow & Spacious — 100 CPM)
 // =============================================================================
-// Starts gentle & slow with just a soft synth arp.
-// Uncomment step 2, 3, and 4 (the beat) one by one, then press <leader>mu!
+// Starts gentle with just a soft synth arp.
+// Press gcc on lines 28, 31, and 34, then press <leader>mu!
 
 stack(
-  // 1. Soft ambient synth arp (starts active, gentle & quiet)
-  note("c3 eb3 g3 c4")
-    .s("sine")
-    .room(0.7)
-    .gain(0.4),
+  // 1. Soft ambient synth arp (ACTIVE BY DEFAULT)
+  note("c3 eb3 g3 c4").s("sine").room(0.7).gain(0.4),
 
-  // 2. Warm deep sub-bass (uncomment with gcc)
-  // note("c2 ~ eb2 ~")
-  //   .s("sawtooth")
-  //   .lpf(400)
-  //   .gain(0.5),
+  // 2. Warm deep sub-bass (Press gcc here)
+  // note("c2 ~ eb2 ~").s("sawtooth").lpf(400).gain(0.5),
 
-  // 3. Subtle hat & rim groove (uncomment with gcc)
-  // s("~ hh ~ rim")
-  //   .gain(0.3),
+  // 3. Subtle hat & rim groove (Press gcc here)
+  // s("~ hh ~ rim").gain(0.3),
 
-  // 4. Anchor beat: Gentle kick (uncomment to drop the beat!)
-  // s("bd ~ bd ~")
-  //   .gain(0.6),
+  // 4. Anchor beat: Gentle kick (Press gcc here to drop the beat!)
+  // s("bd ~ bd ~").gain(0.6),
 ).cpm(100)
 
 
 // =============================================================================
 // 🌇 SONG 2: WARM MELODIC GROOVE (115 CPM)
 // =============================================================================
-// TO SWITCH: Delete Song 1 above (`vip` then `d`), uncomment this block
-// (`vip` then `gc`), and hit <leader>mu!
+// TO SWITCH:
+//   1. Move cursor into Song 1 above, press: vip then d
+//   2. Move cursor into Song 2 below, press: vip then gc (uncomments whole block!)
+//   3. Press <leader>mu to play Song 2 live!
 // =============================================================================
-/*
-stack(
-  // 1. Warm chord progression
-  note("<[c3,g3] [bb2,f3] [ab2,eb3] [g2,d3]>")
-    .s("triangle")
-    .room(0.6)
-    .slow(2)
-    .gain(0.4),
 
-  // 2. Melodic bassline
-  note("c2 eb2 f2 g2")
-    .s("sawtooth")
-    .lpf(600)
-    .decay(0.3)
-    .gain(0.55),
-
-  // 3. Hats & claps
-  s("hh*4, ~ cp ~ cp")
-    .gain(0.35),
-
-  // 4. Anchor kick beat
-  s("bd*4")
-    .gain(0.65),
-).cpm(115)
-*/
+// stack(
+//   // 1. Warm chord progression
+//   note("<[c3,g3] [bb2,f3] [ab2,eb3] [g2,d3]>").s("triangle").room(0.6).slow(2).gain(0.4),
+// 
+//   // 2. Melodic bassline (Press gcc here)
+//   note("c2 eb2 f2 g2").s("sawtooth").lpf(600).decay(0.3).gain(0.55),
+// 
+//   // 3. Hats & claps
+//   s("hh*4, ~ cp ~ cp").gain(0.35),
+// 
+//   // 4. Anchor kick beat
+//   s("bd*4").gain(0.65),
+// ).cpm(115)
 
 
 // =============================================================================
 // ☀️ SONG 3: UPLIFTING PEAK (124 CPM)
 // =============================================================================
-// TO SWITCH: Delete Song 2 (`vip` then `d`), uncomment this block (`vip` + `gc`),
-// and hit <leader>mu!
+// TO SWITCH:
+//   1. Move cursor into Song 2 above, press: vip then d
+//   2. Move cursor into Song 3 below, press: vip then gc
+//   3. Press <leader>mu to drop into the final peak!
 // =============================================================================
-/*
-stack(
-  // 1. Catchy melodic lead hook
-  note("c4 eb4 g4 f4 eb4 c4")
-    .s("square")
-    .lpf(1400)
-    .delay(0.3)
-    .gain(0.4),
 
-  // 2. Driving punchy bassline
-  note("c2 [~ c2] eb2 [~ g2]")
-    .s("sawtooth")
-    .lpf(700)
-    .gain(0.6),
-
-  // 3. Crisp hats & claps with reverb
-  s("~ [hh,cp] ~ [hh,cp]")
-    .room(0.4)
-    .gain(0.4),
-
-  // 4. Final anchor kick beat
-  s("bd*4")
-    .gain(0.7),
-).cpm(124)
-*/
+// stack(
+//   // 1. Catchy melodic lead hook
+//   note("c4 eb4 g4 f4 eb4 c4").s("square").lpf(1400).delay(0.3).gain(0.4),
+// 
+//   // 2. Driving punchy bassline
+//   note("c2 [~ c2] eb2 [~ g2]").s("sawtooth").lpf(700).gain(0.6),
+// 
+//   // 3. Crisp hats & claps with room reverb
+//   s("~ [hh,cp] ~ [hh,cp]").room(0.4).gain(0.4),
+// 
+//   // 4. Final anchor kick beat
+//   s("bd*4").gain(0.7),
+// ).cpm(124)

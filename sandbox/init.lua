@@ -23,6 +23,14 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 
+-- Register .str and .std filetypes as javascript so gcc and treesitter work
+vim.filetype.add({
+  extension = {
+    str = "javascript",
+    std = "javascript",
+  },
+})
+
 -- Setup plugins
 require("lazy").setup({
   {
