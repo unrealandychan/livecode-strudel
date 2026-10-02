@@ -167,6 +167,7 @@ Because `strudel.nvim` stores browser cache persistently in `~/.cache/strudel-nv
 3. `03_melodic_synths_and_bass.str` — Synth waveforms, note sequences, chords, low-pass filter (`lpf`), reverb, and delay.
 4. `04_full_performance.str` — Multi-track layered jam session (`stack(...)`).
 5. `05_visuals_with_hydra.str` — Algorithmic reactive visual patterns using Hydra + Strudel.
+6. `06_dj_set.str` (or `06_dj.str`) — Full 3-track live DJ set progression (Techno -> Breakbeat -> Liquid D&B) with live Neovim hot-swapping (`<leader>mu`).
 
 ---
 
