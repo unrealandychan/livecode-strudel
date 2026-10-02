@@ -1,175 +1,109 @@
 // =============================================================================
-// 06: LIVE DJ SET — 3-TRACK ALGORAVE PERFORMANCE
+// 06: LIVE DJ SET — SIMPLE 3-TRACK PERFORMANCE
 // =============================================================================
 //
-// 🎛️ PERFORMANCE CONTROLS (<leader> = Space):
-//   <leader>ml : :StrudelLaunch (Launch browser / sync buffer)
-//   <leader>mp : :StrudelToggle (Play / Pause audio)
-//   <leader>mu : :StrudelUpdate (UPDATE LIVE PATTERN — Use this constantly!)
-//   <leader>ms : :StrudelStop   (Emergency stop audio)
+// 🎛️ CONTROLS:
+//   <leader>ml : :StrudelLaunch (Connect)
+//   <leader>mp : :StrudelToggle (Play / Pause)
+//   <leader>mu : :StrudelUpdate (UPDATE LIVE CHANGES)
 //
-// 🎹 NEOVIM DJ MOVES:
-//   gcc        : Toggle comment on current line (introduce / mute layer)
-//   vip + gc   : Toggle comment on an entire song block
-//   vip + d    : Delete the finished song above to clear your screen!
-//
-// 🚀 THE 3-TRACK JOURNEY:
-//   Track 1: "Neon Underground" (Progressive Acid Techno — 126 CPM)
-//   Track 2: "Cyberpunk Tokyo"  (Breakbeat Rave & Hyper-Arp — 138 CPM)
-//   Track 3: "Stratosphere"     (Euphoric Liquid D&B Finale — 168 CPM)
+// 🎹 LIVE DJ ACTIONS:
+//   gcc        : Uncomment / comment a line (easy single keystroke)
+//   vip + d    : Delete current track to switch to the next one
+//   vip + gc   : Uncomment the next track
 // =============================================================================
 
 
 // =============================================================================
-// 🎵 TRACK 1: "NEON UNDERGROUND" (Progressive Acid Techno — 126 CPM)
+// 🌙 SONG 1: CHILL DUB (Slow — 100 CPM)
 // =============================================================================
-// Starts minimal. Press <leader>mp to play, then uncomment layers with `gcc`
-// and press <leader>mu after each layer to build the energy to the peak!
+// Starts gentle & slow with just a soft synth arp.
+// Uncomment step 2, 3, and 4 (the beat) one by one, then press <leader>mu!
 
 stack(
-  // [Step 1] - Minimal kick foundation (ACTIVE BY DEFAULT)
-  s("bd*4").gain(1.15),
+  // 1. Soft ambient synth arp (starts active, gentle & quiet)
+  note("c3 eb3 g3 c4")
+    .s("sine")
+    .room(0.7)
+    .gain(0.4),
 
-  // [Step 2] - Shimmering 16th hats with stereo panning & velocity dynamics
-  // s("hh*16")
-  //   .gain(sine.range(0.25, 0.8).fast(4))
-  //   .pan(perlin.range(0.2, 0.8)),
-
-  // [Step 3] - Snappy club clap on beats 2 & 4
-  // s("~ cp ~ cp")
-  //   .room(0.4)
-  //   .gain(0.9),
-
-  // [Step 4] - Euclidean polyrhythm: 3 hits across 8 steps with delay echo
-  // s("rim(3,8)")
-  //   .gain(0.75)
-  //   .delay(0.25)
-  //   .room(0.3),
-
-  // [Step 5] - Warm rolling sub-bassline
-  // note("c2 [~ c2] [eb2 c2] [~ f2]")
+  // 2. Warm deep sub-bass (uncomment with gcc)
+  // note("c2 ~ eb2 ~")
   //   .s("sawtooth")
-  //   .lpf(550)
-  //   .decay(0.32)
-  //   .gain(1.0),
+  //   .lpf(400)
+  //   .gain(0.5),
 
-  // [Step 6] - Ambient chords with spacious reverb & tape delay
-  // note("<[c3,eb3,g3,bb3] [ab2,c3,eb3,g3] [f2,c3,eb3,ab3] [g2,b2,d3,f3]>")
-  //   .s("triangle")
-  //   .lpf(1600)
-  //   .room(0.85)
-  //   .delay(0.4)
-  //   .slow(2)
-  //   .gain(0.75),
+  // 3. Subtle hat & rim groove (uncomment with gcc)
+  // s("~ hh ~ rim")
+  //   .gain(0.3),
 
-  // [Step 7] - Screaming 303 acid lead (Resonant cutoff sweep — PEAK DROP!)
-  // note("c2 [c2 eb2] f2 [g2 bb2] c3 [bb2 g2] [f2 eb2] c2")
-  //   .s("sawtooth")
-  //   .cutoff(sine.range(400, 3400).slow(4))
-  //   .resonance(16)
-  //   .decay(0.18)
-  //   .gain(0.85),
-).cpm(126)
+  // 4. Anchor beat: Gentle kick (uncomment to drop the beat!)
+  // s("bd ~ bd ~")
+  //   .gain(0.6),
+).cpm(100)
 
 
 // =============================================================================
-// ⚡ TRACK 2: "CYBERPUNK TOKYO" (Breakbeat Rave — 138 CPM)
+// 🌇 SONG 2: WARM MELODIC GROOVE (115 CPM)
 // =============================================================================
-// TRANSITION MOVE:
-//   1. In Track 1 above: place cursor inside, press `vip` then `d` to delete it
-//      (or select and comment it out with `gc`).
-//   2. Select Track 2 below in visual mode (`vip`) and press `gc` to uncomment.
-//   3. Press <leader>mu to instantly drop the crowd into 138 CPM Breakbeat!
+// TO SWITCH: Delete Song 1 above (`vip` then `d`), uncomment this block
+// (`vip` then `gc`), and hit <leader>mu!
 // =============================================================================
 /*
 stack(
-  // 1. Syncopated breakbeat kick & snare break
-  s("bd [~ sd] [~ bd] [sd*2 cp]")
-    .gain(1.15),
-
-  // 2. Fast driving closed & offbeat open hi-hats
-  s("hh*8")
-    .gain(0.75),
-  s("~ oh ~ oh")
-    .gain(0.65)
-    .room(0.3),
-
-  // 3. Heavy distorted Reese bassline
-  note("<c1 eb1 f1 g1>")
-    .s("sawtooth")
-    .lpf(750)
-    .decay(0.45)
-    .gain(1.1),
-
-  // 4. Epic rave chord stabs
-  note("<[c4,g4,c5] [bb3,f4,bb4] [ab3,eb4,ab4] [g3,d4,g4]>")
-    .s("sawtooth")
-    .lpf(2200)
-    .decay(0.12)
-    .room(0.7)
+  // 1. Warm chord progression
+  note("<[c3,g3] [bb2,f3] [ab2,eb3] [g2,d3]>")
+    .s("triangle")
+    .room(0.6)
     .slow(2)
-    .gain(0.6),
+    .gain(0.4),
 
-  // 5. Hyperactive trance arpeggio with dynamic filter sweep
-  note("c4 eb4 g4 c5 bb4 g4 eb4 g4")
-    .s("square")
-    .lpf(sine.range(800, 4400).slow(4))
-    .resonance(14)
-    .decay(0.16)
-    .delay(0.25)
-    .room(0.5)
+  // 2. Melodic bassline
+  note("c2 eb2 f2 g2")
+    .s("sawtooth")
+    .lpf(600)
+    .decay(0.3)
+    .gain(0.55),
+
+  // 3. Hats & claps
+  s("hh*4, ~ cp ~ cp")
+    .gain(0.35),
+
+  // 4. Anchor kick beat
+  s("bd*4")
     .gain(0.65),
-).cpm(138)
+).cpm(115)
 */
 
 
 // =============================================================================
-// 🌌 TRACK 3: "STRATOSPHERE" (Euphoric Liquid D&B Finale — 168 CPM)
+// ☀️ SONG 3: UPLIFTING PEAK (124 CPM)
 // =============================================================================
-// GRAND FINALE TRANSITION:
-//   1. In Track 2 above: place cursor inside, press `vip` then `d` to delete it
-//      (or select and comment it out with `gc`).
-//   2. Select Track 3 below in visual mode (`vip`) and press `gc` to uncomment.
-//   3. Press <leader>mu — the tempo accelerates to 168 CPM for the final anthem!
+// TO SWITCH: Delete Song 2 (`vip` then `d`), uncomment this block (`vip` + `gc`),
+// and hit <leader>mu!
 // =============================================================================
 /*
 stack(
-  // 1. Breakneck Liquid D&B syncopated drum groove
-  s("bd ~ [~ bd] sd")
-    .gain(1.2),
-
-  // 2. High-speed 16th hats with dynamic panning
-  s("hh*16")
-    .gain(sine.range(0.3, 0.8).fast(8))
-    .pan(perlin.range(0.3, 0.7)),
-
-  // 3. Ghost Euclidean rimshot polyrhythm (5 hits over 16 steps)
-  s("rim(5,16)")
-    .gain(0.7)
-    .delay(0.2),
-
-  // 4. Deep rolling 808 sub-bassline
-  note("<f1 d1 bb0 c1>")
-    .s("sawtooth")
-    .lpf(450)
-    .decay(0.4)
-    .gain(1.1),
-
-  // 5. Floating lush Rhodes chords with huge reverb & delay
-  note("<[f3,a3,c4,e4] [d3,f3,a3,c4] [bb2,d3,f3,a3] [c3,e3,g3,b3]>")
-    .s("triangle")
-    .lpf(1800)
-    .room(0.85)
-    .delay(0.4)
-    .slow(2)
-    .gain(0.75),
-
-  // 6. Soaring emotional lead melody (The Festival Outro!)
-  note("f4 a4 c5 e5 d5 c5 a4 g4")
-    .s("sine")
-    .decay(0.3)
+  // 1. Catchy melodic lead hook
+  note("c4 eb4 g4 f4 eb4 c4")
+    .s("square")
+    .lpf(1400)
     .delay(0.3)
-    .room(0.6)
+    .gain(0.4),
+
+  // 2. Driving punchy bassline
+  note("c2 [~ c2] eb2 [~ g2]")
+    .s("sawtooth")
+    .lpf(700)
     .gain(0.6),
-).cpm(168)
+
+  // 3. Crisp hats & claps with reverb
+  s("~ [hh,cp] ~ [hh,cp]")
+    .room(0.4)
+    .gain(0.4),
+
+  // 4. Final anchor kick beat
+  s("bd*4")
+    .gain(0.7),
+).cpm(124)
 */
