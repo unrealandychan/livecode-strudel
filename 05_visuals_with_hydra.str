@@ -1,0 +1,18 @@
+// ==========================================
+// 05: REACTIVE VISUALS WITH HYDRA
+// ==========================================
+// Strudel integrates with Hydra (live-coded visuals engine).
+// In Strudel, you can run Hydra commands directly alongside your patterns!
+
+// 1. Audio Pattern:
+s("bd [sd hh] bd [cp*2 hh]").cpm(120)
+
+// 2. Hydra Visuals (evaluates automatically in the Strudel canvas):
+// Uncomment below when launched in Strudel:
+/*
+osc(20, 0.1, 0.8)
+  .color(0.9, 0.2, 0.6)
+  .rotate(0.3, 0.1)
+  .pixelate(20, 20)
+  .out()
+*/

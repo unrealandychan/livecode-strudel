@@ -1,0 +1,30 @@
+// ==========================================
+// 03: MELODIC SYNTHS, BASS & EFFECTS
+// ==========================================
+// Strudel supports software synths (sawtooth, square, triangle, sine)
+// and musical scales / notes.
+
+// 1. Simple bassline with sawtooth wave:
+note("c2 eb2 f2 g2")
+  .s("sawtooth")
+  .lpf(800) // low-pass filter at 800Hz
+  .decay(0.3)
+
+// 2. Chords and arpeggios:
+/*
+note("<[c3,eb3,g3] [bb2,d3,f3] [ab2,c3,eb3] [g2,b2,d3]>")
+  .s("triangle")
+  .room(0.8) // big reverb
+  .delay(0.4) // echo
+  .slow(2)
+*/
+
+// 3. Acid bassline with resonant low-pass filter cutoff sweep:
+/*
+note("c1 [eb1 g1] bb1 c2")
+  .s("sawtooth")
+  .cutoff(sine.range(300, 2500).slow(8)) // filter sweeps up and down
+  .resonance(15)
+  .decay(0.15)
+  .cpm(132)
+*/

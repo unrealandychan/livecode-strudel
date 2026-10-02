@@ -1,0 +1,32 @@
+// ==========================================
+// 02: EUCLIDEAN RHYTHMS & POLYRHYTHMS
+// ==========================================
+// Euclidean rhythms distribute N pulses as evenly as possible over M steps.
+// Syntax: sound(hits, steps)
+
+// 1. Classic Afro-Cuban Tresillo (3 hits over 8 steps):
+s("bd(3,8)")
+
+// 2. Add an offbeat hi-hat (5 hits over 8 steps) with stack():
+/*
+stack(
+  s("bd(3,8)"),
+  s("hh(5,8)").gain(0.8)
+)
+*/
+
+// 3. Polyrhythms: 3 against 4
+/*
+stack(
+  s("bd*4"),
+  s("cp*3").gain(0.7)
+)
+*/
+
+// 4. Evolving sequences with angle brackets <a b c>:
+// Plays pattern 'a' on cycle 1, 'b' on cycle 2, 'c' on cycle 3...
+/*
+s("bd(3,8)")
+  .stack(s("<cp hh rim [sd*2]>*4").gain(0.6))
+  .cpm(128)
+*/

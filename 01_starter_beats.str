@@ -1,0 +1,24 @@
+// ==========================================
+// 01: STARTER BEATS (Tidal Mini-Notation)
+// ==========================================
+// Instructions:
+// 1. Launch with `:StrudelLaunch` (or <leader>ml)
+// 2. Play / Pause with `:StrudelToggle` (or <leader>mp)
+// 3. Edit code, then `:StrudelUpdate` (or <leader>mu) to hear your changes!
+
+// 1. Basic four-on-the-floor kick pattern
+s("bd bd bd bd")
+
+// Try uncommenting different patterns below to experiment:
+
+// 2. Kick + Snare + Hi-hat:
+// s("bd [~ sd] bd [sd hh]")
+
+// 3. Hi-hat subdivisions (*4 repeats 4 times in the step):
+// s("bd [~ sd] bd [sd hh*4]")
+
+// 4. Using rests (~) and claps (cp):
+// s("[bd ~ bd ~] [~ cp ~ cp]")
+
+// 5. Changing playback speed:
+// s("bd [sd hh] bd [sd*2 hh*2]").cpm(130)
