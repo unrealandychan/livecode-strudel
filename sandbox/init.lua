@@ -27,7 +27,16 @@ vim.opt.termguicolors = true
 require("lazy").setup({
   {
     "gruvw/strudel.nvim",
-    build = "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm install puppeteer",
+    build = "PUPPETEER_SKIP_DOWNLOAD=true PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm install puppeteer yargs@latest",
+    cmd = {
+      "StrudelLaunch",
+      "StrudelQuit",
+      "StrudelToggle",
+      "StrudelUpdate",
+      "StrudelStop",
+      "StrudelSetBuffer",
+    },
+    ft = { "strudel", "str", "std" },
     opts = {
       browser_exec_path = "/usr/bin/chromium",
       ui = {
@@ -38,6 +47,14 @@ require("lazy").setup({
     },
     config = function(_, opts)
       require("strudel").setup(opts)
+      vim.api.nvim_create_autocmd("VimLeavePre", {
+        group = vim.api.nvim_create_augroup("StrudelCleanupOnExit", { clear = true }),
+        callback = function()
+          pcall(function()
+            require("strudel").quit()
+          end)
+        end,
+      })
     end,
     keys = {
       { "<leader>ml", "<cmd>StrudelLaunch<cr>", desc = "Music: Launch Strudel" },

@@ -5,7 +5,7 @@
 return {
   "gruvw/strudel.nvim",
   -- Skip downloading bundled Chromium (~300MB) since Arch has /usr/bin/chromium
-  build = "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm install puppeteer",
+  build = "PUPPETEER_SKIP_DOWNLOAD=true PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm install puppeteer yargs@latest",
   -- Lazy-load only when opening music files or running Strudel commands
   cmd = {
     "StrudelLaunch",
@@ -33,9 +33,18 @@ return {
   },
   config = function(_, opts)
     require("strudel").setup(opts)
+    vim.api.nvim_create_autocmd("VimLeavePre", {
+      group = vim.api.nvim_create_augroup("StrudelCleanupOnExit", { clear = true }),
+      callback = function()
+        pcall(function()
+          require("strudel").quit()
+        end)
+      end,
+    })
   end,
   -- Dedicated music livecoding keymaps (<leader>m...)
   keys = {
+    { "<leader>m", desc = "+music/strudel" },
     { "<leader>ml", "<cmd>StrudelLaunch<cr>", desc = "Music: Launch Strudel" },
     { "<leader>mp", "<cmd>StrudelToggle<cr>", desc = "Music: Play/Pause Toggle" },
     { "<leader>mu", "<cmd>StrudelUpdate<cr>", desc = "Music: Update Pattern" },
