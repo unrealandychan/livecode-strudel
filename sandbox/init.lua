@@ -38,6 +38,8 @@ require("lazy").setup({
     },
     ft = { "strudel", "str", "std" },
     opts = {
+      -- Headless mode: no browser window popup! Pure terminal livecoding.
+      headless = true,
       browser_exec_path = "/usr/bin/chromium",
       ui = {
         maximise_menu_panel = true,

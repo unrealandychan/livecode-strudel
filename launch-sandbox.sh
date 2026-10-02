@@ -12,10 +12,10 @@ export XDG_CACHE_HOME="${HOME}/.cache/nvim-strudel-sandbox"
 
 mkdir -p "$XDG_DATA_HOME" "$XDG_STATE_HOME" "$XDG_CACHE_HOME"
 
-echo "🎵 Starting Strudel live-coding sandbox..."
+echo "🎵 Starting Strudel live-coding sandbox (Headless Mode - Zero Popups)..."
 echo "📄 Opening: $TARGET_FILE"
 echo "💡 Commands inside Neovim:"
-echo "   :StrudelLaunch  (or <space>ml) - Open browser & connect audio"
+echo "   :StrudelLaunch  (or <space>ml) - Start headless background engine & connect audio"
 echo "   :StrudelToggle  (or <space>mp) - Play / pause"
 echo "   :StrudelUpdate  (or <space>mu) - Send buffer changes"
 echo "   :StrudelQuit    (or <space>mq) - Close Strudel session"

@@ -17,6 +17,8 @@ return {
   },
   ft = { "strudel", "str", "std" },
   opts = {
+    -- Headless mode: run browser purely in background (zero GUI popup)
+    headless = true,
     -- Explicitly use Arch Linux system Chromium
     browser_exec_path = "/usr/bin/chromium",
     ui = {

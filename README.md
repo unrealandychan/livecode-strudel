@@ -61,6 +61,40 @@ If you want live-coding integrated seamlessly into your normal Neovim setup:
 
 ---
 
+## 🎭 Presentation Mode: Eliminating the Browser Popup
+
+If you are performing or presenting on stage, having a browser window pop up over your editor looks unprofessional. You have **3 presentation choices**:
+
+### 1. Pure Headless Mode (Zero Popup - Audio Only) — *Now Default!*
+Chromium runs as a silent headless background process via Puppeteer.
+- **What the audience sees**: Only your full-screen Neovim terminal.
+- **Audio**: Plays normally through your system sound engine (PipeWire/ALSA).
+- **Configuration** in `opts`:
+  ```lua
+  headless = true,
+  ```
+
+### 2. Hydra Visuals on Projector (No UI Clutter)
+If you want to project live algorithmic visuals (e.g., `05_visuals_with_hydra.str`) onto a second monitor or projector without showing the Strudel editor UI or menu controls:
+- **Configuration** in `opts`:
+  ```lua
+  headless = false,
+  ui = {
+    hide_menu_panel = true,
+    hide_top_bar = true,
+    hide_error_display = true,
+    hide_code_editor = true, -- Leaves only the full-screen visual canvas
+  },
+  ```
+
+### 3. Hyprland / Omarchy Silent Workspace
+If you ever run non-headless mode but don't want it to steal focus or appear on your main screen, route Chromium silently to a hidden or second workspace in `hyprland.conf`:
+```ini
+windowrulev2 = workspace 9 silent, class:^(chromium)$
+```
+
+---
+
 ## 🎹 Default Keymaps (Configured in `plugin-spec/strudel.lua`)
 
 | Keymap | Command | Description |
