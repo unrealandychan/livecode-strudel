@@ -1,5 +1,5 @@
 // =============================================================================
-// 06: LIVE DJ SET — SIMPLE 3-TRACK PERFORMANCE
+// 06: LIVE DJ SET — SIMPLE 3-TRACK PERFORMANCE (SLOW & CHILL)
 // =============================================================================
 //
 // 🎛️ CONTROLS:
@@ -36,7 +36,7 @@ stack(
 
 
 // =============================================================================
-// 🌇 SONG 2: WARM MELODIC GROOVE (115 CPM)
+// 🌇 SONG 2: WARM FLOATING GROOVE (Chill & Slow — 106 CPM)
 // =============================================================================
 // TO SWITCH:
 //   1. Move cursor into Song 1 above, press: vip then d
@@ -45,39 +45,39 @@ stack(
 // =============================================================================
 
 // stack(
-//   // 1. Warm chord progression
-//   note("<[c3,g3] [bb2,f3] [ab2,eb3] [g2,d3]>").s("triangle").room(0.6).slow(2).gain(0.4),
+//   // 1. Lush warm chord pad (slow drifting chords)
+//   note("<[c3,g3] [bb2,f3] [ab2,eb3] [g2,d3]>").s("triangle").room(0.7).slow(4).gain(0.4),
 // 
-//   // 2. Melodic bassline (Press gcc here)
-//   note("c2 eb2 f2 g2").s("sawtooth").lpf(600).decay(0.3).gain(0.55),
+//   // 2. Slow deep bass groove (Press gcc here)
+//   note("c2 ~ eb2 ~ f2 ~ g2 ~").s("sawtooth").lpf(500).decay(0.4).gain(0.55).slow(2),
 // 
-//   // 3. Hats & claps
-//   s("hh*4, ~ cp ~ cp").gain(0.35),
+//   // 3. Relaxed offbeat hats & soft rim (Press gcc here)
+//   s("~ hh ~ [hh,rim]").gain(0.32),
 // 
-//   // 4. Anchor kick beat
-//   s("bd*4").gain(0.65),
-// ).cpm(115)
+//   // 4. Gentle half-time kick beat (Press gcc here)
+//   s("bd ~ bd ~").gain(0.6),
+// ).cpm(106)
 
 
 // =============================================================================
-// ☀️ SONG 3: UPLIFTING PEAK (124 CPM)
+// ☀️ SONG 3: MELLOW MELODIC FINALE (Relaxed Peak — 114 CPM)
 // =============================================================================
 // TO SWITCH:
 //   1. Move cursor into Song 2 above, press: vip then d
 //   2. Move cursor into Song 3 below, press: vip then gc
-//   3. Press <leader>mu to drop into the final peak!
+//   3. Press <leader>mu to drop into the finale!
 // =============================================================================
 
 // stack(
-//   // 1. Catchy melodic lead hook
-//   note("c4 eb4 g4 f4 eb4 c4").s("square").lpf(1400).delay(0.3).gain(0.4),
+//   // 1. Gentle melodic lead hook (spaced out, not busy)
+//   note("c4 ~ eb4 ~ g4 ~ f4 ~").s("square").lpf(1200).delay(0.35).slow(2).gain(0.38),
 // 
-//   // 2. Driving punchy bassline
-//   note("c2 [~ c2] eb2 [~ g2]").s("sawtooth").lpf(700).gain(0.6),
+//   // 2. Warm walking bass (Press gcc here)
+//   note("c2 ~ eb2 ~ g2 ~ bb2 ~").s("sawtooth").lpf(600).gain(0.55).slow(2),
 // 
-//   // 3. Crisp hats & claps with room reverb
-//   s("~ [hh,cp] ~ [hh,cp]").room(0.4).gain(0.4),
+//   // 3. Soft hats & dub clap (Press gcc here)
+//   s("~ hh ~ [hh,cp]").room(0.4).gain(0.38),
 // 
-//   // 4. Final anchor kick beat
-//   s("bd*4").gain(0.7),
-// ).cpm(124)
+//   // 4. Grounded half-time kick beat (Press gcc here)
+//   s("bd ~ bd ~").gain(0.65),
+// ).cpm(114)
