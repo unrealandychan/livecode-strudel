@@ -1,118 +1,113 @@
 // =============================================================================
-// 06: LIVE DJ SET — REAL DJ ARRANGEMENT (FADE-INS, ATMOSPHERE & DROPS)
+// 06: LIVE DINNER LOUNGE SET (Chill Neo-Soul, Jazz & Lofi Ambient)
 // =============================================================================
 //
-// 🎧 THE REAL DJ EXPERIENCE:
-//   No aggressive drums at the start! Each track begins with pure atmosphere:
-//   lush floating chords with an automatic DJ low-pass filter sweep (.lpf(sine...))
-//   that breathes in and out like a DJ working the mixer knob.
+// 🍷 DINNER & WINE BAR ATMOSPHERE:
+//   Zero techno, zero harsh synths, zero loud kicks.
+//   Soft Fender Rhodes jazz chords, warm acoustic upright bass, subtle
+//   brushed rimshots, and mellow vibes at a relaxed 78–88 CPM.
+//   Perfect for dinner conversation, clinking wine glasses, and cozy ambiance.
 //
 // 🎛️ CONTROLS:
 //   <leader>ml : :StrudelLaunch (Connect to Strudel engine)
 //   <leader>mp : :StrudelToggle (Play / Pause audio)
 //   <leader>mu : :StrudelUpdate (UPDATE CHANGES LIVE — Press after each move!)
 //
-// 🎹 REAL DJ TRANSITION TECHNIQUE:
-//   1. BUILDUP : Press gcc on layers to bring in melody, bass, and hats.
-//   2. THE DROP: Press gcc on the Kick line -> <leader>mu (the anchor beat drops!).
-//   3. BREAKDOWN: Before switching songs, press gcc on the Kick line -> <leader>mu
-//                 (cuts the beat out, leaving only floating ambient chords!).
-//   4. TRANSITION: vip then d to delete the track, vip then gc to uncomment the next
-//                 track, then <leader>mu -> enters smoothly with next track's chords!
+// 🎹 LIVE DJ ACTIONS:
+//   gcc        : Toggle comment on a line (introduce / mute layer with 1 tap)
+//   vip then d : Delete current song paragraph to transition to next song
+//   vip then gc: Uncomment next song block instantly
 // =============================================================================
 
 
 // =============================================================================
-// 🌙 TRACK 1: "DEEP SUNRISE" (Atmospheric Ambient -> Dub Drop — 100 CPM)
+// 🕯️ TRACK 1: "CANDLELIGHT LOUNGE" (Mellow Jazz & Neo-Soul — 78 CPM)
 // =============================================================================
-// Starts with ZERO drums. Just lush chords with a slow DJ filter sweep.
-// Press <leader>mp to begin. Uncomment layers one by one, then drop the beat!
+// Starts with ZERO drums — just warm, floating Fender Rhodes jazz chords.
+// Press <leader>mp to start. Uncomment layers with gcc, then hit <leader>mu!
 
 stack(
-  // 1. [INTRO / ATMOSPHERE] Floating ambient pad with slow DJ filter sweep (ACTIVE)
-  note("<[c3,g3] [eb3,bb3] [f3,c4] [g3,d4]>")
+  // 1. [ATMOSPHERE] Warm Rhodes jazz chords (ACTIVE BY DEFAULT)
+  note("<[c3,eb3,g3,bb3] [f3,a3,c4,e4] [bb2,d3,f3,a3] [g2,b2,d3,f3]>")
     .s("triangle")
-    .lpf(sine.range(350, 1600).slow(16))
-    .room(0.85)
-    .delay(0.4)
+    .lpf(900)
+    .room(0.75)
     .slow(4)
-    .gain(0.4),
+    .gain(0.35),
 
-  // 2. [MELODY] Soft sine pluck (Press gcc here)
-  // note("c3 ~ [~ eb3] ~ g3 ~").s("sine").room(0.6).delay(0.3).gain(0.35),
+  // 2. [MELODY] Soft mellow vibraphone accents (Press gcc here)
+  // note("~ g4 ~ c5 ~ eb4 ~").s("sine").room(0.6).delay(0.3).decay(0.4).gain(0.25),
 
-  // 3. [BASS] Deep warm sub-bass pulse (Press gcc here)
-  // note("c2 ~ eb2 ~").s("sawtooth").lpf(380).gain(0.55),
+  // 3. [BASS] Warm upright acoustic bass (Press gcc here)
+  // note("<c2 f2 bb1 g2>").s("sine").lpf(320).gain(0.45),
 
-  // 4. [PERCUSSION] Spacey ghost rim & offbeat hat (Press gcc here)
-  // s("~ hh ~ rim").room(0.4).gain(0.3),
+  // 4. [PERCUSSION] Subtle brushed rimshot (Press gcc here)
+  // s("~ rim ~ [~ rim]").room(0.4).gain(0.25),
 
-  // 5. [THE DROP] Gentle anchor kick — drop this last! (Press gcc here)
-  // s("bd ~ bd ~").lpf(700).gain(0.6),
-).cpm(100)
+  // 5. [ANCHOR BEAT] Gentle lofi heartbeat kick (Press gcc here)
+  // s("bd ~ [~ bd] ~").lpf(350).gain(0.4),
+).cpm(78)
 
 
 // =============================================================================
-// 🌇 TRACK 2: "VELVET GROOVE" (Warm Floating House — 108 CPM)
+// 🍷 TRACK 2: "ROOFTOP WINE BAR" (Bossa & Chillhop — 84 CPM)
 // =============================================================================
-// DJ TRANSITION MOVE:
-//   1. In Track 1: Mute the kick (gcc on line 50 -> <leader>mu) for a breakdown.
-//   2. Delete Track 1: Move cursor inside, press: vip then d
-//   3. Start Track 2: Move cursor below, press: vip then gc
-//   4. Press <leader>mu -> Track 2 fades in with warm chords and ZERO drums!
+// TO SWITCH:
+//   1. Move cursor into Track 1 above, press: vip then d
+//   2. Move cursor into Track 2 below, press: vip then gc (uncomments whole block!)
+//   3. Press <leader>mu -> Track 2 enters smoothly with silky chords and NO drums!
 // =============================================================================
 
 // stack(
-//   // 1. [ATMOSPHERE] Warm Rhodes-style chord drift with DJ filter sweep (ACTIVE)
-//   note("<[c3,eb3,g3] [bb2,d3,f3] [ab2,c3,eb3] [g2,b2,d3]>")
+//   // 1. [ATMOSPHERE] Silky 7th chords with warm room reverb (ACTIVE)
+//   note("<[d3,f3,a3,c4] [g2,b2,d3,f3] [c3,e3,g3,b3] [a2,c3,e3,g3]>")
 //     .s("triangle")
-//     .lpf(sine.range(400, 1800).slow(12))
-//     .room(0.75)
+//     .lpf(1000)
+//     .room(0.7)
 //     .slow(4)
-//     .gain(0.4),
+//     .gain(0.35),
 // 
-//   // 2. [MELODY] Ambient bell pluck (Press gcc here)
-//   note("g4 ~ bb4 ~ c5 ~").s("sine").delay(0.35).room(0.5).gain(0.32),
+//   // 2. [MELODY] Sweet bell plucks (Press gcc here)
+//   note("a4 ~ e5 ~ d5 ~").s("sine").decay(0.35).delay(0.3).gain(0.22),
 // 
-//   // 3. [BASS] Smooth walking bassline (Press gcc here)
-//   note("c2 ~ eb2 ~ f2 ~ g2 ~").s("sawtooth").lpf(550).decay(0.35).slow(2).gain(0.55),
+//   // 3. [BASS] Smooth walking soul bassline (Press gcc here)
+//   note("d2 ~ g2 ~ c2 ~ a1 ~").s("triangle").lpf(400).decay(0.5).gain(0.45),
 // 
-//   // 4. [PERCUSSION] Relaxed hats & shaker (Press gcc here)
-//   s("~ hh ~ [hh,rim]").gain(0.32),
+//   // 4. [PERCUSSION] Delicate jazz hi-hat & rim (Press gcc here)
+//   s("~ hh ~ [hh,rim]").gain(0.25),
 // 
-//   // 5. [THE DROP] Warm four-on-the-floor house kick anchor! (Press gcc here)
-//   s("bd ~ bd ~").lpf(800).gain(0.65),
-// ).cpm(108)
+//   // 5. [ANCHOR BEAT] Ultra-soft lounge pulse kick (Press gcc here)
+//   s("bd ~ ~ ~").lpf(320).gain(0.4),
+// ).cpm(84)
 
 
 // =============================================================================
-// ☀️ TRACK 3: "HORIZON" (Ethereal Strings -> Uplifting Peak — 116 CPM)
+// ☕ TRACK 3: "LATE NIGHT ESPRESSO" (Midnight Coffeehouse — 88 CPM)
 // =============================================================================
 // GRAND FINALE TRANSITION:
-//   1. In Track 2: Mute the kick (gcc -> <leader>mu) for breakdown.
-//   2. Delete Track 2: vip then d
-//   3. Start Track 3: vip then gc on Track 3 below -> <leader>mu!
+//   1. Move cursor into Track 2 above, press: vip then d
+//   2. Move cursor into Track 3 below, press: vip then gc
+//   3. Press <leader>mu to finish the dinner set!
 // =============================================================================
 
 // stack(
-//   // 1. [ATMOSPHERE] Ethereal synth strings with slow harmonic bloom (ACTIVE)
-//   note("<[c3,eb3,g3] [ab2,c3,eb3] [bb2,d3,f3] [g2,b2,d3]>")
+//   // 1. [ATMOSPHERE] Dreamy major-9th progression (ACTIVE)
+//   note("<[f3,a3,c4,e4] [e3,g3,b3,d4] [d3,f3,a3,c4] [c3,e3,g3,b3]>")
 //     .s("triangle")
-//     .lpf(sine.range(500, 2200).slow(16))
-//     .room(0.85)
-//     .delay(0.4)
+//     .lpf(950)
+//     .room(0.8)
 //     .slow(4)
-//     .gain(0.42),
+//     .gain(0.35),
 // 
-//   // 2. [MELODY] Emotive top lead melody (Press gcc here)
-//   note("c4 ~ eb4 ~ g4 ~ f4 ~").s("square").lpf(1300).delay(0.3).slow(2).gain(0.38),
+//   // 2. [MELODY] Cozy melodic lead (Press gcc here)
+//   note("e4 ~ g4 ~ a4 ~ c5 ~").s("sine").lpf(1100).delay(0.35).slow(2).gain(0.25),
 // 
-//   // 3. [BASS] Deep progressive bass (Press gcc here)
-//   note("c2 [~ c2] eb2 [~ g2]").s("sawtooth").lpf(650).gain(0.58),
+//   // 3. [BASS] Deep cozy acoustic bass (Press gcc here)
+//   note("<f1 e1 d1 c1>").s("sine").lpf(300).gain(0.45),
 // 
-//   // 4. [PERCUSSION] Spacey hats & dub clap (Press gcc here)
-//   s("~ [hh,cp] ~ [hh,cp]").room(0.5).gain(0.4),
+//   // 4. [PERCUSSION] Soft brushed snare (Press gcc here)
+//   s("~ cp ~ cp").lpf(1200).room(0.5).gain(0.22),
 // 
-//   // 5. [THE DROP] Full grounded kick anchor! (Press gcc here)
-//   s("bd ~ bd ~").gain(0.7),
-// ).cpm(116)
+//   // 5. [ANCHOR BEAT] Gentle chillhop kick (Press gcc here)
+//   s("bd ~ ~ bd").lpf(350).gain(0.4),
+// ).cpm(88)
