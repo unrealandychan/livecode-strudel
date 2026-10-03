@@ -1,0 +1,113 @@
+// =============================================================================
+// 07: 12-BAR TEXAS BLUES GUITAR BACKING TRACK (Key of E)
+// =============================================================================
+// Inspired by: Stevie Ray Vaughan ("Pride and Joy"), Freddie King ("Hide Away"),
+//              Albert King, and Billy Gibbons (ZZ Top).
+//
+// 🎸 GUITAR JAMMING CHEAT SHEET (KEY OF E):
+// -----------------------------------------------------------------------------
+// 1. E Minor Pentatonic (The Essential Blues Box):
+//    Notes: E - G - A - B - D
+//    Box 1 (12th Fret):
+//      e |----------------------------12--15--|
+//      B |--------------------12--15----------|
+//      G |------------12--14------------------|
+//      D |----12--14--------------------------|
+//      A |----12--14--------------------------|
+//      E |--12--15----------------------------|
+//
+// 2. The "Blue Note" (Bb / Flat 5 - The Secret Sauce!):
+//    Add Bb (15th fret on A, 13th fret on G, 15th fret on B):
+//    Notes: E - G - A - [Bb] - B - D
+//
+// 3. E Major Pentatonic (Sweet BB King / SRV Blend):
+//    Notes: E - F# - G# - B - C#  (Mix over the E7 chord!)
+//
+// 🎼 12-BAR FORM (MEASURE-BY-MEASURE):
+// -----------------------------------------------------------------------------
+// Bars 1–4  : [E7] [E7] [E7] [E7]   -> The Tonic (Home)
+// Bars 5–6  : [A7] [A7]             -> The Subdominant (The IV Chord lift!)
+// Bars 7–8  : [E7] [E7]             -> Back Home
+// Bar 9     : [B7]                  -> The Dominant (The V Chord peak tension!)
+// Bar 10    : [A7]                  -> Resolving IV Chord
+// Bar 11    : [E7]                  -> Home
+// Bar 12    : [B7]                  -> Turnaround (Pulls back to Bar 1!)
+//
+// 🎛️ CONTROLS (<leader> = Space):
+//   <leader>ml : :StrudelLaunch (Launch browser / sync)
+//   <leader>mp : :StrudelToggle (Play / Pause backing track)
+//   <leader>mu : :StrudelUpdate (Apply any tempo/layer changes live)
+//   gcc        : Toggle mute/unmute on any instrument layer
+// =============================================================================
+
+
+// =============================================================================
+// ⚡ MAIN TRACK: TEXAS SHUFFLE IN E (118 CPM — Medium Groovy Shuffle)
+// =============================================================================
+stack(
+  // 1. Kick Drum: Feathered four-on-the-floor blues kick (warm & round)
+  s("bd*4")
+    .lpf(400)
+    .gain(0.65),
+
+  // 2. Snare: Sharp backbeat crack on beats 2 and 4
+  s("~ sd ~ sd")
+    .room(0.35)
+    .gain(0.75),
+
+  // 3. Hi-Hat / Ride: The signature swung Texas triplet shuffle feel
+  s("[~ hh hh]!4")
+    .gain(0.38),
+
+  // 4. Texas Walking Bassline: Full 12-bar boogie-woogie bass progression
+  // (Root -> 3rd -> 5th -> 6th -> b7 -> 6th -> 5th -> 3rd)
+  note("<[e1 gs1 b1 cs2 d2 cs2 b1 gs1]!4 [a1 cs2 e2 fs2 g2 fs2 e2 cs2]!2 [e1 gs1 b1 cs2 d2 cs2 b1 gs1]!2 [b1 ds2 fs2 gs2 a2 gs2 fs2 ds2] [a1 cs2 e2 fs2 g2 fs2 e2 cs2] [e1 gs1 b1 cs2 d2 cs2 b1 gs1] [b1 ds2 fs2 gs2 a2 gs2 fs2 ds2]>")
+    .s("sawtooth")
+    .lpf(450)
+    .decay(0.3)
+    .gain(0.75),
+
+  // 5. Rhythm Guitar Chops: Sharp offbeat 7th chord stabs (Freddie King style)
+  note("<[~ [e3,gs3,d4]]!4 [~ [a3,cs4,g4]]!2 [~ [e3,gs3,d4]]!2 [~ [b3,ds4,a4]] [~ [a3,cs4,g4]] [~ [e3,gs3,d4]] [~ [b3,ds4,a4]]>")
+    .s("triangle")
+    .lpf(1600)
+    .decay(0.2)
+    .room(0.5)
+    .gain(0.5),
+
+  // 6. Hammond B3 Organ: Warm sustained blues chords (Press gcc here to enable!)
+  // note("<[e3,gs3,b3,d4]!4 [a2,e3,g3,cs4]!2 [e3,gs3,b3,d4]!2 [b2,fs3,a3,ds4] [a2,e3,g3,cs4] [e3,gs3,b3,d4] [b2,fs3,a3,ds4]>")
+  //   .s("sine")
+  //   .lpf(1200)
+  //   .room(0.8)
+  //   .gain(0.35),
+).cpm(118)
+
+
+// =============================================================================
+// 🌧️ BONUS VARIATION: SLOW BURNING TEXAS BLUES (66 CPM — "Texas Flood" Style)
+// =============================================================================
+// To play the slow blues:
+//   1. Place cursor in Track 1 above, press: vip then d (or vip then gc)
+//   2. Place cursor below, press: vip then gc (uncomment)
+//   3. Press <leader>mu!
+// =============================================================================
+
+// stack(
+//   // 1. Slow heartbeat kick
+//   s("bd ~ [~ bd] ~").lpf(350).gain(0.6),
+// 
+//   // 2. Heavy backbeat snare with deep hall reverb
+//   s("~ ~ sd ~").room(0.65).gain(0.7),
+// 
+//   // 3. 12/8 blues triplet hi-hat pulse
+//   s("hh*6").gain(0.35),
+// 
+//   // 4. Slow walking blues bassline
+//   note("<[e1 gs1 b1 cs2]!4 [a1 cs2 e2 fs2]!2 [e1 gs1 b1 cs2]!2 [b1 ds2 fs2 gs2] [a1 cs2 e2 fs2] [e1 gs1 b1 cs2] [b1 ds2 fs2 gs2]>")
+//     .s("sawtooth").lpf(400).decay(0.6).gain(0.7),
+// 
+//   // 5. Sustained minor/dominant blues chords
+//   note("<[e3,gs3,d4]!4 [a3,cs4,g4]!2 [e3,gs3,d4]!2 [b3,ds4,a4] [a3,cs4,g4] [e3,gs3,d4] [b3,ds4,a4]>")
+//     .s("triangle").lpf(1400).room(0.75).gain(0.42),
+// ).cpm(66)
