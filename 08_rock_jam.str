@@ -1,13 +1,52 @@
 // =============================================================================
-// 08: ROCK JAM — HIGHWAY RIFF & POWER ANTHEM (Key of D / Bm — 116 CPM)
+// 08: SLOW ROCK BALLAD JAM — 16-BAR CINEMATIC JOURNEY (Key of D / Bm — 64 CPM)
 // =============================================================================
-// Driving 4/4 stadium rock backing track in the Key of D / Bm.
-// Features overdriven power chord rhythm, pumping 8th-note bass, punchy rock drums,
-// and full guitar soloing roadmap.
+// Epic 16-bar slow rock ballad backing track engineered specifically for soaring
+// lead guitar solos (in the spirit of Pink Floyd, Gary Moore, Slash, and Eagles).
 //
-// 🎸 HOW TO JAM OVER KEY OF D / Bm:
+// 🎛️ LAYER ORDER: DRUMS -> BASS -> CHORDS -> SOMETHING ELSE (ARPEGGIO & ORGAN)
+//
+// 🎸 WHY THIS TRACK PERFECTLY MATCHES LEAD GUITAR:
 // -----------------------------------------------------------------------------
-// • B Minor Pentatonic (Box 1, 7th Fret — The Ultimate Rock Box!):
+// 1. FREQUENCY SEPARATION (NO MUD):
+//    All rhythm instruments (chords, bass, arpeggios) are low-pass filtered
+//    below 1350 Hz. The entire 1.5 kHz – 6 kHz presence band is left 100% crystal
+//    clear for your guitar's pickups, overdrive, string harmonics, and bends!
+//
+// 2. ZERO NERVOUS DRUMS (DEEP SUBSONIC ANCHOR):
+//    No agitated double-kicks or rapid pounding! The kick drum is a deep, warm
+//    heartbeat placed ONLY on beat 1 (LPF 200 Hz). The snare delivers a massive,
+//    wet stadium hall crack on beats 2 & 4 with long tail decay.
+//
+// 3. 16-BAR NARRATIVE PROGRESSION (Bm to D Major):
+//    Takes the listener on a breathtaking journey from dark minor melancholy
+//    (Bars 1–8 in Bm) to glorious, soaring daylight (Bars 9–16 in D Major).
+//
+// 🎼 16-BAR HARMONIC ROADMAP:
+// -----------------------------------------------------------------------------
+// • PART 1: B MINOR BALLAD (Bars 1–8: Weeping, Emotional, Reflective)
+//   Bar 1 : [Bm]   -> Deep minor tonic anchor
+//   Bar 2 : [A]    -> Melodic step down
+//   Bar 3 : [G]    -> Emotional subdominant lift
+//   Bar 4 : [Em]   -> Dark reflective warmth
+//   Bar 5 : [Bm]   -> Minor home
+//   Bar 6 : [A]    -> Step down
+//   Bar 7 : [G]    -> Rising tension
+//   Bar 8 : [F#7]  -> Dramatic harmonic minor dominant turnaround!
+//
+// • PART 2: D MAJOR ANTHEM (Bars 9–16: Triumphant, Soaring, Heroic)
+//   Bar 9  : [D]   -> Radiant D Major opening! (Hit high major notes!)
+//   Bar 10 : [A]   -> Strong dominant pillar
+//   Bar 11 : [Bm]  -> Relative minor echo
+//   Bar 12 : [G]   -> Stadium anthem lift
+//   Bar 13 : [D]   -> Pure daylight
+//   Bar 14 : [A]   -> Driving forward
+//   Bar 15 : [Em]  -> Breath of emotion
+//   Bar 16 : [A]   -> Turnaround preparing for next loop
+//
+// 🎸 MASTERCLASS SOLOING ROADMAP (EXACT FRETS & MOVES):
+// -----------------------------------------------------------------------------
+// • Over Part 1 (Bm — Frets 7–10 / B Minor Pentatonic & Aeolian):
 //    e |--------------------------7--10--|  (B, D)
 //    B |--------------------7--10--------|  (F#, A)
 //    G |----------------7--9-------------|  (D, E)
@@ -15,20 +54,24 @@
 //    A |----7--9-------------------------|  (E, F#)
 //    E |--7--10--------------------------|  (B, D)
 //
-// • Essential Rock Lead Moves:
-//   1. The Classic Unison Bend:
-//      Fret 10 on B string (A note) while fretting 7 on high E string (B note).
-//      Bend the B string up a whole step with your ring finger until both notes scream!
-//   2. The Chuck Berry / AC-DC Double-Stop:
-//      Barre frets 7 on G & B strings with your index finger, strike together,
-//      hammer onto fret 9 of D string, resolve to fret 7 on G!
-//   3. Major Pentatonic Sweetness (D Major):
-//      Slide into 11th fret on G string (F# note) for soaring melodic Southern rock.
+//   ★ Move 1: The Gilmour 15th-Fret Cry:
+//     Fret 15 on B string (D note) bent up a whole step to E, held with wide vibrato.
+//   ★ Move 2: The Weeping Gary Moore Release:
+//     Release 15th-fret bend slowly down to D, slide down to fret 14 on G string (A note)
+//     as the chord transitions to A!
+//   ★ Move 3: The Bar 8 F#7 Leading-Tone Target:
+//     On Bar 8 (F#7), target fret 11 on B string (A# note) for chilling harmonic tension!
 //
-// 🎼 HARMONIC ROADMAP:
-// -----------------------------------------------------------------------------
-// Track 1: [Bm] -> [G] -> [D] -> [A]  (vi - IV - I - V Anthem Rock)
-// Track 2: [D]  -> [C] -> [G] -> [D]  (I - bVII - IV - I Classic 70s Rock)
+// • Over Part 2 (D Major — Frets 10–15 / D Major Pentatonic & Sweet Box):
+//    e |--------10--12--14--|  (D, E, F#)
+//    B |--10-12-------------|  (A, B)
+//    G |--11----------------|  (F# = Sweet major 3rd of D!)
+//
+//   ★ Move 4: The Daylight Lift:
+//     Slide into fret 11 on G string (F#), strike fret 10 on B string (A), then bend
+//     fret 12 on B string (B up to C#) over the A chord — pure melodic magic!
+//   ★ Move 5: The Epic Climax:
+//     Whole-step bend on fret 17 of high E string (A note bent up to B)!
 //
 // 🎛️ CONTROLS (<leader> = Space in Neovim):
 //   <leader>ml : :StrudelLaunch (Connect to Strudel engine)
@@ -39,68 +82,60 @@
 
 
 // =============================================================================
-// ⚡ TRACK 1: "HIGHWAY DRIVE" (Driving Anthem Rock — Key of D / Bm — 116 CPM)
+// ⚡ TRACK 1: "COMFORT & GLORY" (16-Bar Epic Slow Rock Ballad — 64 CPM)
 // =============================================================================
-// LIVE-BUILDING FLOW:
-//   Starts with ONLY Layer 1 active (crunchy power chords).
-//   Introduce layers live as your solo builds up:
-//   Line 53: Pumping Bass | Line 56: Driving Hats | Line 59: Snare | Line 62: Kick
+// PERFORMANCE BUILD ORDER: DRUMS -> BASS -> CHORDS -> SOMETHING ELSE (ARPEGGIO & ORGAN)
+//   Starts with DRUMS active laying down the deep, massive, non-nervous stadium groove.
+//   Then bring in your layers one-by-one:
+//   Line 104: Ballad Bass | Line 107: 16-Bar Chords | Line 110: Clean Arp | Line 113: Organ Swell
 
 stack(
-  // [Step 1 - ACTIVE AT START] Overdriven Rhythm Chords (Bm -> G -> D -> A)
-  note("<[b2,fs3,b3] [g2,d3,g3] [d3,a3,d4] [a2,e3,a3]>")
-    .s("sawtooth")
-    .lpf(1600)
-    .decay(0.9)
-    .gain(0.42),
+  // 1. [DRUMS - ACTIVE] Gentle unhurried quarter-note hats (keeps time with zero clutter)
+  s("hh*4").gain(sine.range(0.18, 0.32).slow(2)),
 
-  // [Step 2 - BASS] Pumping 8th-Note Rock Bassline (Press gcc here)
-  // note("<b1*8 g1*8 d2*8 a1*8>").s("sawtooth").lpf(550).decay(0.35).gain(0.65),
+  // 1. [DRUMS - ACTIVE] Massive stadium ballad snare on 2 & 4 with deep hall reverb
+  s("~ sd ~ sd").room(0.85).decay(0.6).gain(0.68),
 
-  // [Step 3 - HI-HAT] Driving 8th-note hats with velocity dynamic pulse (Press gcc here)
-  // s("hh*8").gain(sine.range(0.28, 0.55).fast(4)),
+  // 1. [DRUMS - ACTIVE] Grounding subsonic kick on beat 1 only (calm downbeat anchor, zero nervousness!)
+  s("bd ~ ~ ~").lpf(200).gain(0.55),
 
-  // [Step 4 - SNARE] Cracking rock backbeat snare on 2 & 4 (Press gcc here)
-  // s("~ sd ~ sd").room(0.35).gain(0.8),
+  // 1. [DRUMS - ACTIVE] Ambient cymbal crash marking the 8-bar section changes
+  s("cr ~ ~ ~").slow(8).gain(0.35),
 
-  // [Step 5 - KICK] Heavy driving kick pattern (Press gcc here to anchor!)
-  // s("bd [~ bd] bd ~").gain(0.85),
+  // 2. [BASS] Sustained Ballad Bassline (Press gcc here)
+  // note("<[b1 ~ ~ ~] [a1 ~ ~ ~] [g1 ~ ~ ~] [e1 ~ ~ ~] [b1 ~ ~ ~] [a1 ~ ~ ~] [g1 ~ ~ ~] [fs1 ~ ~ ~] [d2 ~ ~ ~] [a1 ~ ~ ~] [b1 ~ ~ ~] [g1 ~ ~ ~] [d2 ~ ~ ~] [a1 ~ ~ ~] [e1 ~ ~ ~] [a1 ~ ~ ~]>").s("triangle").lpf(300).decay(1.4).gain(0.65),
 
-  // [Step 6 - CRASH] Big cymbal crash on downbeat of cycle (Press gcc here!)
-  // s("cr ~ ~ ~").slow(4).gain(0.4),
+  // 3. [CHORDS] Lush 16-Bar Slow Rock Ballad Chords (Bm to D Major Journey) (Press gcc here)
+  // note("<[b2,d3,fs3] [a2,cs3,e3] [g2,b2,d3] [e2,g2,b2] [b2,d3,fs3] [a2,cs3,e3] [g2,b2,d3] [fs2,as2,cs3,e3] [d3,fs3,a3] [a2,cs3,e3] [b2,d3,fs3] [g2,b2,d3] [d3,fs3,a3] [a2,cs3,e3] [e2,g2,b2] [a2,cs3,e3]>").s("sawtooth").lpf(1050).room(0.85).decay(2.2).gain(0.38),
 
-  // [Step 7 - LEAD SYNTH] Ambient arena synth hook (Press gcc here!)
-  // note("<[fs4,b4,d5] [g4,b4,d5] [fs4,a4,d5] [e4,a4,cs5]>").s("square").lpf(1300).delay(0.3).room(0.6).gain(0.28),
-).cpm(116)
+  // 4. [SOMETHING ELSE - ARPEGGIO] Delicate Clean Picking Arpeggio (Press gcc here)
+  // note("<[b2 d3 fs3 b3] [a2 cs3 e3 a3] [g2 b2 d3 g3] [e2 g2 b2 e3] [b2 d3 fs3 b3] [a2 cs3 e3 a3] [g2 b2 d3 g3] [fs2 as2 cs3 fs3] [d3 fs3 a3 d4] [a2 cs3 e3 a3] [b2 d3 fs3 b3] [g2 b2 d3 g3] [d3 fs3 a3 d4] [a2 cs3 e3 a3] [e2 g2 b2 e3] [a2 cs3 e3 a3]>").s("triangle").lpf(1350).decay(0.5).room(0.7).gain(0.24),
+
+  // 4. [SOMETHING ELSE - ORGAN] Warm Leslie Swell on Turnarounds (Press gcc here)
+  // note("<~!7 [fs3,as3,cs4,e4] ~!7 [a3,cs4,e4,g4]>").s("sine").lpf(850).room(0.9).gain(0.28),
+).cpm(64)
 
 
 // =============================================================================
-// 🎸 BONUS TRACK: "SUNSET BOULEVARD" (Classic 70s Rock Groove — Key of D — 108 CPM)
+// 🎸 BONUS TRACK: "DESERT MOON" (Slow Atmospheric Fuzz Rock — Key of D — 68 CPM)
 // =============================================================================
-// Classic Southern / Tom Petty / AC-DC style swagger in D (D5 - C5 - G5 - D5).
+// Spacious 70s slow rock swagger in D (D -> C -> G -> D).
+// Same alignment: DRUMS -> BASS -> CHORDS -> ARPEGGIO.
 // To switch: Delete Track 1 above (vip then d), uncomment below (vip then gc), <leader>mu!
 // =============================================================================
 
 // stack(
-//   // 1. [ACTIVE] Crunchy 70s rock riff chords (D5 -> C5 -> G5 -> D5)
-//   note("<[d3,a3,d4]!2 [c3,g3,c4]!2 [g2,d3,g3]!2 [d3,a3,d4]!2>")
-//     .s("sawtooth")
-//     .lpf(1500)
-//     .decay(0.7)
-//     .gain(0.4),
+//   // 1. [DRUMS] Unhurried 4/4 rock groove
+//   s("hh*4").gain(0.28),
+//   s("~ sd ~ sd").room(0.7).gain(0.65),
+//   s("bd ~ ~ ~").lpf(210).gain(0.5),
 // 
-//   // 2. Punchy syncopated rock bass
-//   note("<[d2 ~ d2 d2]!2 [c2 ~ c2 c2]!2 [g1 ~ g1 g1]!2 [d2 ~ d2 d2]!2>")
-//     .s("sawtooth")
-//     .lpf(450)
-//     .gain(0.6),
+//   // 2. [BASS] Deep melodic rock bass
+//   note("<[d2 ~ ~ ~]!2 [c2 ~ ~ ~]!2 [g1 ~ ~ ~]!2 [d2 ~ ~ ~]!2>").s("sawtooth").lpf(400).gain(0.6),
 // 
-//   // 3. Steady driving hi-hat
-//   s("hh*4").gain(0.35),
+//   // 3. [CHORDS] Warm 70s rock chords (D to C to G to D)
+//   note("<[d3,a3,d4]!2 [c3,g3,c4]!2 [g2,d3,g3]!2 [d3,a3,d4]!2>").s("sawtooth").lpf(1300).decay(1.2).gain(0.38),
 // 
-//   // 4. Tight snare backbeat on 2 & 4
-//   s("~ sd ~ sd").room(0.3).gain(0.75),
-// 
-//   // 5. Rolling kick pulse
-//   s("bd [~ bd] bd [~ bd]").gain(0.8),
-// ).cpm(108)
+//   // 4. [SOMETHING ELSE - ATMOSPHERE] Echoing arpeggio
+//   note("<[fs4 a4 d5]!2 [e4 g4 c5]!2 [d4 g4 b4]!2 [fs4 a4 d5]!2>").s("triangle").lpf(1400).delay(0.4).room(0.7).gain(0.22),
+// ).cpm(68)

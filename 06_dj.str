@@ -21,49 +21,24 @@
 
 
 // =============================================================================
-// 🕯️ TRACK 1: "CANDLELIGHT LOUNGE" (Mellow Jazz & Neo-Soul — 78 CPM)
-// =============================================================================
-// Starts with ZERO drums — just warm, floating Fender Rhodes jazz chords.
-// Press <leader>mp to start. Uncomment layers with gcc, then hit <leader>mu!
-
-
-// =============================================================================
-// 🍷 TRACK 2: "ROOFTOP WINE BAR" (Bossa & Chillhop — 84 CPM)
-// =============================================================================
-// TO SWITCH:
-//   1. Move cursor into Track 1 above, press: vip then d
-//   2. Move cursor into Track 2 below, press: vip then gc (uncomments whole block!)
-//   3. Press <leader>mu -> Track 2 enters smoothly with silky chords and NO drums!
-// =============================================================================
-
-
-// =============================================================================
 // ☕ TRACK 3: "LATE NIGHT ESPRESSO" (Midnight Coffeehouse — 88 CPM)
 // =============================================================================
-// GRAND FINALE TRANSITION:
-//   1. Move cursor into Track 2 above, press: vip then d
-//   2. Move cursor into Track 3 below, press: vip then gc
-//   3. Press <leader>mu to finish the dinner set!
-// =============================================================================
+// PERFORMANCE BUILD ORDER: DRUMS -> BASS -> CHORDS -> SOMETHING ELSE (MELODY)
+//   Press <leader>mp to play!
 
 stack(
-  // 1. [ATMOSPHERE] Dreamy major-9th progression (ACTIVE)
-  note("<[f3,a3,c4,e4] [e3,g3,b3,d4] [d3,f3,a3,c4] [c3,e3,g3,b3]>")
-    .s("triangle")
-    .lpf(950)
-    .room(0.8)
-    .slow(4)
-    .gain(0.35),
-
-  // 2. [MELODY] Cozy melodic lead (Press gcc here)
-  note("e4 ~ g4 ~ a4 ~ c5 ~").s("sine").lpf(1100).delay(0.35).slow(2).gain(0.25),
-
-  // 3. [BASS] Deep cozy acoustic bass (Press gcc here)
-  note("<f1 e1 d1 c1>").s("sine").lpf(300).gain(0.45),
-
-  // 4. [PERCUSSION] Soft brushed snare (Press gcc here)
+  // 1. [DRUMS] Soft brushed snare
   s("~ cp ~ cp").lpf(1200).room(0.5).gain(0.22),
 
-  // 5. [ANCHOR BEAT] Gentle chillhop kick (Press gcc here)
-  s("bd ~ ~ bd").lpf(350).gain(0.4),
+  // 1. [DRUMS] Gentle chillhop kick on beat 1 only (zero nervousness!)
+  s("bd ~ ~ ~").lpf(280).gain(0.4),
+
+  // 2. [BASS] Deep cozy acoustic bass (Press gcc here)
+  // note("<f1 e1 d1 c1>").s("sine").lpf(300).gain(0.45),
+
+  // 3. [CHORDS] Dreamy major-9th progression (Press gcc here)
+  // note("<[f3,a3,c4,e4] [e3,g3,b3,d4] [d3,f3,a3,c4] [c3,e3,g3,b3]>").s("triangle").lpf(950).room(0.8).slow(4).gain(0.35),
+
+  // 4. [SOMETHING ELSE - MELODY] Cozy melodic lead (Press gcc here)
+  // note("e4 ~ g4 ~ a4 ~ c5 ~").s("sine").lpf(1100).delay(0.35).slow(2).gain(0.25),
 ).cpm(88)

@@ -1,9 +1,9 @@
 // =============================================================================
-// 09: JAZZ JAM — SWING STANDARDS & BOSSA NOVA (Key of D / Bm — 112 CPM)
+// 09: JAZZ JAM — SWING STANDARDS & BOSSA NOVA (Key of D / Bm — 110 CPM)
 // =============================================================================
 // Sophisticated, warm jazz backing track in the Key of D / Bm.
-// Features authentic swing ride cymbals, walking upright bass, charleston
-// piano comping, and full jazz improvisation roadmap.
+// Layered in the intuitive performance build order: DRUMS -> BASS -> CHORDS -> VIBES.
+// Relaxed 110 CPM swing with subtle feathered kick on beat 1 (zero nervous thumping).
 //
 // 🎸 HOW TO JAM OVER KEY OF D / Bm (ii - V - I - VI):
 // -----------------------------------------------------------------------------
@@ -33,40 +33,35 @@
 
 
 // =============================================================================
-// 🎷 TRACK 1: "MANHATTAN MOONLIGHT" (Classic Swing ii - V - I - VI in D — 112 CPM)
+// 🎷 TRACK 1: "MANHATTAN MOONLIGHT" (Classic Swing ii - V - I - VI in D — 110 CPM)
 // =============================================================================
-// LIVE-BUILDING FLOW:
-//   Starts with ONLY Layer 1 active (warm Rhodes 7th/9th jazz comping).
-//   Play your melody, then introduce the jazz rhythm section layer-by-layer:
-//   Line 53: Walking Bass | Line 56: Swing Ride | Line 59: Hi-Hat Foot | Line 62: Snare Ghost
+// PERFORMANCE BUILD ORDER: DRUMS -> BASS -> CHORDS -> SOMETHING ELSE (VIBES)
+//   Starts with DRUMS active laying down the relaxed jazz swing pulse.
+//   Then bring in your band layer-by-layer:
+//   Line 60: Walking Bass | Line 63: Rhodes Chords | Line 66: Vibraphone
 
 stack(
-  // [Step 1 - ACTIVE AT START] Warm Fender Rhodes Jazz Comping (Em9 -> A13 -> Dmaj9 -> B7b9)
-  note("<[e3,g3,b3,d4] [a2,g3,cs4,fs4] [d3,fs3,a3,cs4] [b2,a3,ds4,g4]>")
-    .s("triangle")
-    .lpf(1100)
-    .room(0.7)
-    .decay(0.8)
-    .gain(0.4),
+  // 1. [DRUMS - ACTIVE] Classic Swung Jazz Ride Cymbal
+  s("[ride ~ ride ride]").gain(0.32),
 
-  // [Step 2 - BASS] Authentic Walking Upright Bass with Chromatic Approaches (Press gcc here)
-  // note("<[e2 g2 b2 d3] [a1 cs2 e2 g2] [d2 fs2 a2 ais2] [b1 ds2 fs2 a2]>").s("sine").lpf(360).gain(0.58),
+  // 1. [DRUMS - ACTIVE] Acoustic hi-hat foot 'chick' on beats 2 & 4
+  s("~ hh ~ hh").gain(0.25),
 
-  // [Step 3 - RIDE] Classic Swung Jazz Ride Cymbal (Press gcc here)
-  // s("[ride ~ ride ride]").gain(0.35),
+  // 1. [DRUMS - ACTIVE] Soft brushed rimshot & snare ghost notes
+  s("~ ~ ~ rim").room(0.5).gain(0.28),
 
-  // [Step 4 - HI-HAT FOOT] Acoustic hi-hat foot 'chick' on beats 2 & 4 (Press gcc here)
-  // s("~ hh ~ hh").gain(0.3),
+  // 1. [DRUMS - ACTIVE] Subdued feathered kick on beat 1 only (calm anchor, zero nervousness!)
+  s("bd ~ ~ ~").lpf(150).gain(0.2),
 
-  // [Step 5 - BRUSHED SNARE] Soft brushed rimshot & snare ghost notes (Press gcc here)
-  // s("~ rim ~ [~ rim]").room(0.5).gain(0.32),
+  // 2. [BASS] Authentic Walking Upright Bass with Chromatic Approaches (Press gcc here)
+  // note("<[e2 g2 b2 d3] [a1 cs2 e2 g2] [d2 fs2 a2 ais2] [b1 ds2 fs2 a2]>").s("sine").lpf(340).gain(0.55),
 
-  // [Step 6 - FEATHERED KICK] Subdued acoustic quarter-note jazz pulse (Press gcc here)
-  // s("bd*4").lpf(180).gain(0.25),
+  // 3. [CHORDS] Warm Fender Rhodes Jazz Comping (Em9 -> A13 -> Dmaj9 -> B7b9) (Press gcc here)
+  // note("<[e3,g3,b3,d4] [a2,g3,cs4,fs4] [d3,fs3,a3,cs4] [b2,a3,ds4,g4]>").s("triangle").lpf(1050).room(0.75).decay(0.8).gain(0.38),
 
-  // [Step 7 - VIBES] Delicate vibraphone counter-melody (Press gcc here)
+  // 4. [SOMETHING ELSE - VIBES] Delicate vibraphone counter-melody (Press gcc here)
   // note("~ fs4 ~ a4 ~ cs5 ~").s("sine").room(0.6).delay(0.3).decay(0.4).gain(0.22),
-).cpm(112)
+).cpm(110)
 
 
 // =============================================================================
@@ -74,30 +69,26 @@ stack(
 // =============================================================================
 // Mellow Latin jazz / Bossa Nova in B Minor (relative minor of D).
 // Chords: Bm7 -> Em7 -> C#m7b5 -> F#7b9 -> Bm7.
+// Same alignment: DRUMS -> BASS -> CHORDS -> ATMOSPHERE.
 // To switch: Delete Track 1 above (vip then d), uncomment below (vip then gc), <leader>mu!
 // =============================================================================
 
 // stack(
-//   // 1. [ACTIVE] Syncopated Bossa Nova guitar/Rhodes chords
-//   note("<[b2,d3,fs3,a3]!2 [e2,g3,b3,d4]!2 [cs3,e3,g3,b3] [fs2,as2,e3,g3] [b2,d3,fs3,a3]!2>")
-//     .s("triangle")
-//     .lpf(1050)
-//     .room(0.75)
-//     .decay(0.9)
-//     .gain(0.38),
-// 
-//   // 2. Melodic bossa acoustic bassline (root & 5th with Latin feel)
-//   note("<[b1 ~ fs2 ~]!2 [e1 ~ b1 ~]!2 [cs2 ~ g1 ~] [fs1 ~ cs2 ~] [b1 ~ fs2 ~]!2>")
-//     .s("sine")
-//     .lpf(340)
-//     .gain(0.55),
-// 
-//   // 3. Crisp Latin rimshot clave rhythm
+//   // 1. [DRUMS] Crisp Latin rimshot clave rhythm
 //   s("[~ rim] rim [~ rim] [rim ~]").room(0.4).gain(0.38),
 // 
-//   // 4. Soft continuous 16th/8th hi-hat shaker
+//   // 1. [DRUMS] Soft continuous hi-hat shaker
 //   s("hh*8").gain(0.24),
 // 
-//   // 5. Gentle heartbeat bossa kick
-//   s("bd ~ [~ bd] ~").lpf(260).gain(0.45),
+//   // 1. [DRUMS] Gentle heartbeat bossa kick on beat 1 only (zero nervousness!)
+//   s("bd ~ ~ ~").lpf(180).gain(0.35),
+// 
+//   // 2. [BASS] Melodic bossa acoustic bassline (root & 5th with Latin feel)
+//   note("<[b1 ~ fs2 ~]!2 [e1 ~ b1 ~]!2 [cs2 ~ g1 ~] [fs1 ~ cs2 ~] [b1 ~ fs2 ~]!2>").s("sine").lpf(340).gain(0.55),
+// 
+//   // 3. [CHORDS] Syncopated Bossa Nova guitar/Rhodes chords
+//   note("<[b2,d3,fs3,a3]!2 [e2,g3,b3,d4]!2 [cs3,e3,g3,b3] [fs2,as2,e3,g3] [b2,d3,fs3,a3]!2>").s("triangle").lpf(1050).room(0.75).decay(0.9).gain(0.38),
+// 
+//   // 4. [SOMETHING ELSE - ATMOSPHERE] Mellow bell melody
+//   note("~ d5 ~ b4 ~ fs4 ~").s("sine").room(0.6).delay(0.3).gain(0.2),
 // ).cpm(92)
