@@ -1,83 +1,118 @@
 // =============================================================================
-// 06: LIVE DJ SET — SIMPLE 3-TRACK PERFORMANCE (SLOW & CHILL)
+// 06: LIVE DJ SET — REAL DJ ARRANGEMENT (FADE-INS, ATMOSPHERE & DROPS)
 // =============================================================================
+//
+// 🎧 THE REAL DJ EXPERIENCE:
+//   No aggressive drums at the start! Each track begins with pure atmosphere:
+//   lush floating chords with an automatic DJ low-pass filter sweep (.lpf(sine...))
+//   that breathes in and out like a DJ working the mixer knob.
 //
 // 🎛️ CONTROLS:
 //   <leader>ml : :StrudelLaunch (Connect to Strudel engine)
 //   <leader>mp : :StrudelToggle (Play / Pause audio)
-//   <leader>mu : :StrudelUpdate (UPDATE CHANGES LIVE — Press after uncommenting!)
+//   <leader>mu : :StrudelUpdate (UPDATE CHANGES LIVE — Press after each move!)
 //
-// 🎹 LIVE DJ ACTIONS:
-//   gcc        : Toggle comment on current line (introduce / mute layer with 1 tap)
-//   vip then d : Delete current song paragraph to make room for next song
-//   vip then gc: Uncomment next song block instantly
+// 🎹 REAL DJ TRANSITION TECHNIQUE:
+//   1. BUILDUP : Press gcc on layers to bring in melody, bass, and hats.
+//   2. THE DROP: Press gcc on the Kick line -> <leader>mu (the anchor beat drops!).
+//   3. BREAKDOWN: Before switching songs, press gcc on the Kick line -> <leader>mu
+//                 (cuts the beat out, leaving only floating ambient chords!).
+//   4. TRANSITION: vip then d to delete the track, vip then gc to uncomment the next
+//                 track, then <leader>mu -> enters smoothly with next track's chords!
 // =============================================================================
 
 
 // =============================================================================
-// 🌙 SONG 1: CHILL DUB (Slow & Spacious — 100 CPM)
+// 🌙 TRACK 1: "DEEP SUNRISE" (Atmospheric Ambient -> Dub Drop — 100 CPM)
 // =============================================================================
-// Starts gentle with just a soft synth arp.
-// Press gcc on lines 28, 31, and 34, then press <leader>mu!
+// Starts with ZERO drums. Just lush chords with a slow DJ filter sweep.
+// Press <leader>mp to begin. Uncomment layers one by one, then drop the beat!
 
 stack(
-  // 1. Soft ambient synth arp (ACTIVE BY DEFAULT)
-  note("c3 eb3 g3 c4").s("sine").room(0.7).gain(0.4),
+  // 1. [INTRO / ATMOSPHERE] Floating ambient pad with slow DJ filter sweep (ACTIVE)
+  note("<[c3,g3] [eb3,bb3] [f3,c4] [g3,d4]>")
+    .s("triangle")
+    .lpf(sine.range(350, 1600).slow(16))
+    .room(0.85)
+    .delay(0.4)
+    .slow(4)
+    .gain(0.4),
 
-  // 2. Warm deep sub-bass (Press gcc here)
-  // note("c2 ~ eb2 ~").s("sawtooth").lpf(400).gain(0.5),
+  // 2. [MELODY] Soft sine pluck (Press gcc here)
+  // note("c3 ~ [~ eb3] ~ g3 ~").s("sine").room(0.6).delay(0.3).gain(0.35),
 
-  // 3. Subtle hat & rim groove (Press gcc here)
-  // s("~ hh ~ rim").gain(0.3),
+  // 3. [BASS] Deep warm sub-bass pulse (Press gcc here)
+  // note("c2 ~ eb2 ~").s("sawtooth").lpf(380).gain(0.55),
 
-  // 4. Anchor beat: Gentle kick (Press gcc here to drop the beat!)
-  // s("bd ~ bd ~").gain(0.6),
+  // 4. [PERCUSSION] Spacey ghost rim & offbeat hat (Press gcc here)
+  // s("~ hh ~ rim").room(0.4).gain(0.3),
+
+  // 5. [THE DROP] Gentle anchor kick — drop this last! (Press gcc here)
+  // s("bd ~ bd ~").lpf(700).gain(0.6),
 ).cpm(100)
 
 
 // =============================================================================
-// 🌇 SONG 2: WARM FLOATING GROOVE (Chill & Slow — 106 CPM)
+// 🌇 TRACK 2: "VELVET GROOVE" (Warm Floating House — 108 CPM)
 // =============================================================================
-// TO SWITCH:
-//   1. Move cursor into Song 1 above, press: vip then d
-//   2. Move cursor into Song 2 below, press: vip then gc (uncomments whole block!)
-//   3. Press <leader>mu to play Song 2 live!
+// DJ TRANSITION MOVE:
+//   1. In Track 1: Mute the kick (gcc on line 50 -> <leader>mu) for a breakdown.
+//   2. Delete Track 1: Move cursor inside, press: vip then d
+//   3. Start Track 2: Move cursor below, press: vip then gc
+//   4. Press <leader>mu -> Track 2 fades in with warm chords and ZERO drums!
 // =============================================================================
 
 // stack(
-//   // 1. Lush warm chord pad (slow drifting chords)
-//   note("<[c3,g3] [bb2,f3] [ab2,eb3] [g2,d3]>").s("triangle").room(0.7).slow(4).gain(0.4),
+//   // 1. [ATMOSPHERE] Warm Rhodes-style chord drift with DJ filter sweep (ACTIVE)
+//   note("<[c3,eb3,g3] [bb2,d3,f3] [ab2,c3,eb3] [g2,b2,d3]>")
+//     .s("triangle")
+//     .lpf(sine.range(400, 1800).slow(12))
+//     .room(0.75)
+//     .slow(4)
+//     .gain(0.4),
 // 
-//   // 2. Slow deep bass groove (Press gcc here)
-//   note("c2 ~ eb2 ~ f2 ~ g2 ~").s("sawtooth").lpf(500).decay(0.4).gain(0.55).slow(2),
+//   // 2. [MELODY] Ambient bell pluck (Press gcc here)
+//   note("g4 ~ bb4 ~ c5 ~").s("sine").delay(0.35).room(0.5).gain(0.32),
 // 
-//   // 3. Relaxed offbeat hats & soft rim (Press gcc here)
+//   // 3. [BASS] Smooth walking bassline (Press gcc here)
+//   note("c2 ~ eb2 ~ f2 ~ g2 ~").s("sawtooth").lpf(550).decay(0.35).slow(2).gain(0.55),
+// 
+//   // 4. [PERCUSSION] Relaxed hats & shaker (Press gcc here)
 //   s("~ hh ~ [hh,rim]").gain(0.32),
 // 
-//   // 4. Gentle half-time kick beat (Press gcc here)
-//   s("bd ~ bd ~").gain(0.6),
-// ).cpm(106)
+//   // 5. [THE DROP] Warm four-on-the-floor house kick anchor! (Press gcc here)
+//   s("bd ~ bd ~").lpf(800).gain(0.65),
+// ).cpm(108)
 
 
 // =============================================================================
-// ☀️ SONG 3: MELLOW MELODIC FINALE (Relaxed Peak — 114 CPM)
+// ☀️ TRACK 3: "HORIZON" (Ethereal Strings -> Uplifting Peak — 116 CPM)
 // =============================================================================
-// TO SWITCH:
-//   1. Move cursor into Song 2 above, press: vip then d
-//   2. Move cursor into Song 3 below, press: vip then gc
-//   3. Press <leader>mu to drop into the finale!
+// GRAND FINALE TRANSITION:
+//   1. In Track 2: Mute the kick (gcc -> <leader>mu) for breakdown.
+//   2. Delete Track 2: vip then d
+//   3. Start Track 3: vip then gc on Track 3 below -> <leader>mu!
 // =============================================================================
 
 // stack(
-//   // 1. Gentle melodic lead hook (spaced out, not busy)
-//   note("c4 ~ eb4 ~ g4 ~ f4 ~").s("square").lpf(1200).delay(0.35).slow(2).gain(0.38),
+//   // 1. [ATMOSPHERE] Ethereal synth strings with slow harmonic bloom (ACTIVE)
+//   note("<[c3,eb3,g3] [ab2,c3,eb3] [bb2,d3,f3] [g2,b2,d3]>")
+//     .s("triangle")
+//     .lpf(sine.range(500, 2200).slow(16))
+//     .room(0.85)
+//     .delay(0.4)
+//     .slow(4)
+//     .gain(0.42),
 // 
-//   // 2. Warm walking bass (Press gcc here)
-//   note("c2 ~ eb2 ~ g2 ~ bb2 ~").s("sawtooth").lpf(600).gain(0.55).slow(2),
+//   // 2. [MELODY] Emotive top lead melody (Press gcc here)
+//   note("c4 ~ eb4 ~ g4 ~ f4 ~").s("square").lpf(1300).delay(0.3).slow(2).gain(0.38),
 // 
-//   // 3. Soft hats & dub clap (Press gcc here)
-//   s("~ hh ~ [hh,cp]").room(0.4).gain(0.38),
+//   // 3. [BASS] Deep progressive bass (Press gcc here)
+//   note("c2 [~ c2] eb2 [~ g2]").s("sawtooth").lpf(650).gain(0.58),
 // 
-//   // 4. Grounded half-time kick beat (Press gcc here)
-//   s("bd ~ bd ~").gain(0.65),
-// ).cpm(114)
+//   // 4. [PERCUSSION] Spacey hats & dub clap (Press gcc here)
+//   s("~ [hh,cp] ~ [hh,cp]").room(0.5).gain(0.4),
+// 
+//   // 5. [THE DROP] Full grounded kick anchor! (Press gcc here)
+//   s("bd ~ bd ~").gain(0.7),
+// ).cpm(116)
