@@ -1,0 +1,106 @@
+// =============================================================================
+// 08: ROCK JAM — HIGHWAY RIFF & POWER ANTHEM (Key of D / Bm — 116 CPM)
+// =============================================================================
+// Driving 4/4 stadium rock backing track in the Key of D / Bm.
+// Features overdriven power chord rhythm, pumping 8th-note bass, punchy rock drums,
+// and full guitar soloing roadmap.
+//
+// 🎸 HOW TO JAM OVER KEY OF D / Bm:
+// -----------------------------------------------------------------------------
+// • B Minor Pentatonic (Box 1, 7th Fret — The Ultimate Rock Box!):
+//    e |--------------------------7--10--|  (B, D)
+//    B |--------------------7--10--------|  (F#, A)
+//    G |----------------7--9-------------|  (D, E)
+//    D |----------7--9-------------------|  (A, B)
+//    A |----7--9-------------------------|  (E, F#)
+//    E |--7--10--------------------------|  (B, D)
+//
+// • Essential Rock Lead Moves:
+//   1. The Classic Unison Bend:
+//      Fret 10 on B string (A note) while fretting 7 on high E string (B note).
+//      Bend the B string up a whole step with your ring finger until both notes scream!
+//   2. The Chuck Berry / AC-DC Double-Stop:
+//      Barre frets 7 on G & B strings with your index finger, strike together,
+//      hammer onto fret 9 of D string, resolve to fret 7 on G!
+//   3. Major Pentatonic Sweetness (D Major):
+//      Slide into 11th fret on G string (F# note) for soaring melodic Southern rock.
+//
+// 🎼 HARMONIC ROADMAP:
+// -----------------------------------------------------------------------------
+// Track 1: [Bm] -> [G] -> [D] -> [A]  (vi - IV - I - V Anthem Rock)
+// Track 2: [D]  -> [C] -> [G] -> [D]  (I - bVII - IV - I Classic 70s Rock)
+//
+// 🎛️ CONTROLS (<leader> = Space in Neovim):
+//   <leader>ml : :StrudelLaunch (Connect to Strudel engine)
+//   <leader>mp : :StrudelToggle (Play / Pause backing track)
+//   <leader>mu : :StrudelUpdate (APPLY CHANGES LIVE — Press after uncommenting!)
+//   gcc        : Toggle comment on a line (1 tap to introduce/mute a layer)
+// =============================================================================
+
+
+// =============================================================================
+// ⚡ TRACK 1: "HIGHWAY DRIVE" (Driving Anthem Rock — Key of D / Bm — 116 CPM)
+// =============================================================================
+// LIVE-BUILDING FLOW:
+//   Starts with ONLY Layer 1 active (crunchy power chords).
+//   Introduce layers live as your solo builds up:
+//   Line 53: Pumping Bass | Line 56: Driving Hats | Line 59: Snare | Line 62: Kick
+
+stack(
+  // [Step 1 - ACTIVE AT START] Overdriven Rhythm Chords (Bm -> G -> D -> A)
+  note("<[b2,fs3,b3] [g2,d3,g3] [d3,a3,d4] [a2,e3,a3]>")
+    .s("sawtooth")
+    .lpf(1600)
+    .decay(0.9)
+    .gain(0.42),
+
+  // [Step 2 - BASS] Pumping 8th-Note Rock Bassline (Press gcc here)
+  // note("<b1*8 g1*8 d2*8 a1*8>").s("sawtooth").lpf(550).decay(0.35).gain(0.65),
+
+  // [Step 3 - HI-HAT] Driving 8th-note hats with velocity dynamic pulse (Press gcc here)
+  // s("hh*8").gain(sine.range(0.28, 0.55).fast(4)),
+
+  // [Step 4 - SNARE] Cracking rock backbeat snare on 2 & 4 (Press gcc here)
+  // s("~ sd ~ sd").room(0.35).gain(0.8),
+
+  // [Step 5 - KICK] Heavy driving kick pattern (Press gcc here to anchor!)
+  // s("bd [~ bd] bd ~").gain(0.85),
+
+  // [Step 6 - CRASH] Big cymbal crash on downbeat of cycle (Press gcc here!)
+  // s("cr ~ ~ ~").slow(4).gain(0.4),
+
+  // [Step 7 - LEAD SYNTH] Ambient arena synth hook (Press gcc here!)
+  // note("<[fs4,b4,d5] [g4,b4,d5] [fs4,a4,d5] [e4,a4,cs5]>").s("square").lpf(1300).delay(0.3).room(0.6).gain(0.28),
+).cpm(116)
+
+
+// =============================================================================
+// 🎸 BONUS TRACK: "SUNSET BOULEVARD" (Classic 70s Rock Groove — Key of D — 108 CPM)
+// =============================================================================
+// Classic Southern / Tom Petty / AC-DC style swagger in D (D5 - C5 - G5 - D5).
+// To switch: Delete Track 1 above (vip then d), uncomment below (vip then gc), <leader>mu!
+// =============================================================================
+
+// stack(
+//   // 1. [ACTIVE] Crunchy 70s rock riff chords (D5 -> C5 -> G5 -> D5)
+//   note("<[d3,a3,d4]!2 [c3,g3,c4]!2 [g2,d3,g3]!2 [d3,a3,d4]!2>")
+//     .s("sawtooth")
+//     .lpf(1500)
+//     .decay(0.7)
+//     .gain(0.4),
+// 
+//   // 2. Punchy syncopated rock bass
+//   note("<[d2 ~ d2 d2]!2 [c2 ~ c2 c2]!2 [g1 ~ g1 g1]!2 [d2 ~ d2 d2]!2>")
+//     .s("sawtooth")
+//     .lpf(450)
+//     .gain(0.6),
+// 
+//   // 3. Steady driving hi-hat
+//   s("hh*4").gain(0.35),
+// 
+//   // 4. Tight snare backbeat on 2 & 4
+//   s("~ sd ~ sd").room(0.3).gain(0.75),
+// 
+//   // 5. Rolling kick pulse
+//   s("bd [~ bd] bd [~ bd]").gain(0.8),
+// ).cpm(108)

@@ -168,7 +168,9 @@ Because `strudel.nvim` stores browser cache persistently in `~/.cache/strudel-nv
 4. `04_full_performance.str` — Multi-track layered jam session (`stack(...)`).
 5. `05_visuals_with_hydra.str` — Algorithmic reactive visual patterns using Hydra + Strudel.
 6. `06_dj_set.str` (or `06_dj.str`) — Live dinner lounge DJ performance (Mellow Jazz, Neo-Soul & Chillhop) with zero-drum ambient intros and seamless Neovim hot-swapping (`<leader>mu`).
-7. `07_texas_blues_12_bar.str` (or `07_blues.str`) — Authentic 12-bar Texas blues shuffle backing track in E (SRV / Freddie King style) with walking bass, swung shuffle drums, rhythm chops, and guitar solo guide.
+7. `07_blues.str` (or `07_texas_blues_12_bar.str`) — Authentic 12-bar slow blues shuffle backing track in D / Bm (40 CPM slow crawl) with simple walking bass, swung shuffle drums, soulful 9th chords, and guitar solo guide with pentatonic & blue note boxes.
+8. `08_rock.str` (or `08_rock_jam.str`) — Driving 4/4 rock jam in D / Bm (116 CPM) with crunchy power chords (Bm-G-D-A), pumping 8th-note bass, punchy rock drums, unison bends, and lead roadmap.
+9. `09_jazz.str` (or `09_jazz_jam.str`) — Sophisticated jazz jam in D / Bm (112 CPM) featuring classic ii-V-I-VI swing (Em7-A7-Dmaj7-B7), walking upright bass, jazz ride & brushed ghost notes, plus late-night Bossa Nova in Bm.
 
 ---
 

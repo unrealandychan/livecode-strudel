@@ -1,35 +1,36 @@
 // =============================================================================
-// 07: "TEXAS FLOOD" — SLOW BURNING 12-BAR BLUES (Key of E — 48 CPM)
+// 07: "TEXAS SHUFFLE" — SLOW BURNING 12-BAR BLUES (Key of D / Bm — 40 CPM)
 // =============================================================================
-// Faithfully modeled after Stevie Ray Vaughan's legendary recording "Texas Flood"
-// (1982). Crawling 48 CPM tempo in deep 12/8 triplet shuffle with the iconic
-// Bar 2 Quick-Change to IV.
+// Simpler, slower, spacious 12-bar blues backing track in the Key of D / Bm.
+// Relaxed 40 CPM crawl tempo with ample room for crying bends and deep vibrato.
 //
-// 🎸 HOW TO JAM OVER "TEXAS FLOOD" (KEY OF E):
+// 🎸 HOW TO JAM OVER KEY OF D / Bm:
 // -----------------------------------------------------------------------------
-// • E Minor Pentatonic + The Blue Note (Box 1, 12th Fret):
-//    e |----------------------------12--15--|  (E, G)
-//    B |--------------------12--15----------|  (B, D)
-//    G |------------12--14-[15]-------------|  (G, A, [Bb = Blue Note!])
-//    D |----12--14--------------------------|  (D, E)
-//    A |----12--14-[15]---------------------|  (A, B, [Bb])
-//    E |--12--15----------------------------|  (E, G)
+// • D Minor Pentatonic + The Blue Note (Box 1, 10th Fret):
+//    e |--------------------------------10--13--|  (D, F)
+//    B |------------------------10--13----------|  (A, C)
+//    G |----------------10--12-[13]-------------|  (F, G, [Ab = The Blue Note!])
+//    D |--------10--12--------------------------|  (C, D)
+//    A |----10--12-[13]-------------------------|  (G, A, [Ab])
+//    E |--10--13--------------------------------|  (D, F)
 //
-// • Iconic Texas Flood Opening Lick:
-//   Slow whole-step bend on the 14th fret of the G string (A bent up to B),
-//   hold it with heavy vibrato, release slowly to 12th fret G, then resolve to 14th fret D!
+// • B.B. King Sweet Box (D Major Pentatonic / B Minor Pentatonic, 10th-12th Fret):
+//    e |--------10--12--|  (D, E)
+//    B |--10-12---------|  (A, B) -> Bend 12th fret on B (B up to C#) for sweet blues cry!
 //
-// 🎼 12-BAR HARMONIC ROADMAP (WITH QUICK CHANGE):
+// • Iconic Slow Blues Opening Lick in D:
+//   Slow whole-step bend on 12th fret of G string (G bent up to A), hold with
+//   heavy vibrato, release slowly to 10th fret G (F note), resolve to 12th fret D (D root)!
+//
+// 🎼 12-BAR HARMONIC ROADMAP (KEY OF D):
 // -----------------------------------------------------------------------------
-// Bar 1  : [E7#9]             -> The SRV "Hendrix" tonic chord
-// Bar 2  : [A9]               -> THE QUICK-CHANGE TO IV (The signature Texas Flood move!)
-// Bar 3–4: [E7#9] [E7#9]      -> Back to home
-// Bar 5–6: [A9]   [A9]        -> The IV Chord (Dig into crying bends!)
-// Bar 7–8: [E7#9] [E7#9]      -> Home
-// Bar 9  : [B9]               -> The V Chord (Peak emotional tension!)
-// Bar 10 : [A9]               -> Resolving IV Chord
-// Bar 11 : [E7#9]             -> Home
-// Bar 12 : [B7#9]             -> The Turnaround (Dripping tension back to Bar 1)
+// Bar 1–4 : [D9] [G9] [D9] [D9]   -> Tonic with Quick-Change to IV in Bar 2
+// Bar 5–6 : [G9] [G9]             -> IV Chord (Dig into crying bends!)
+// Bar 7–8 : [D9] [D9]             -> Back to Tonic
+// Bar 9   : [A9]                  -> V Chord (Peak emotional tension!)
+// Bar 10  : [G9]                  -> Resolving IV Chord
+// Bar 11  : [D9]                  -> Tonic
+// Bar 12  : [A9]                  -> The Turnaround (Dripping tension back to Bar 1)
 //
 // 🎛️ CONTROLS (<leader> = Space in Neovim):
 //   <leader>ml : :StrudelLaunch (Connect to Strudel engine)
@@ -40,59 +41,68 @@
 
 
 // =============================================================================
-// 🌧️ TRACK 1: "TEXAS FLOOD" (Ultra-Slow 12/8 Triplet Shuffle — 48 CPM)
+// 🌧️ TRACK 1: "TEXAS SHUFFLE" (Slow 12-Bar Blues Crawl — Key of D — 40 CPM)
 // =============================================================================
 // LIVE-BUILDING FLOW:
-//   Starts with ONLY Layer 1 active (dripping E7#9 chords with deep hall reverb).
-//   Play your slow guitar intro over the chords, then introduce layers one-by-one:
-//   Line 53: Swung Bass | Line 56: Shuffle Hat | Line 59: Wet Snare | Line 62: Kick
+//   Starts with ONLY Layer 1 active (warm D9 blues chords with deep hall reverb).
+//   Play your guitar intro over the chords, then introduce layers one-by-one:
+//   Line 53: Walking Bass | Line 56: Shuffle Hat | Line 59: Snare | Line 62: Kick
 
 stack(
-  // [Step 1 - ACTIVE AT START] Dripping Slow Blues Chords (with Quick-Change to IV)
-  note("<[e3,gs3,d4,g4] [a2,g3,cs4,fs4] [e3,gs3,d4,g4]!2 [a2,g3,cs4,fs4]!2 [e3,gs3,d4,g4]!2 [b2,a3,ds4,g4] [a2,g3,cs4,fs4] [e3,gs3,d4,g4] [b2,a3,ds4,g4]>")
+  // [Step 1 - ACTIVE AT START] Warm Slow Blues Chords (D9 - G9 - A9)
+  note("<[d3,fs3,c4,e4] [g2,b2,f3,a3] [d3,fs3,c4,e4]!2 [g2,b2,f3,a3]!2 [d3,fs3,c4,e4]!2 [a2,cs3,g3,b3] [g2,b2,f3,a3] [d3,fs3,c4,e4] [a2,cs3,g3,b3]>")
     .s("triangle")
-    .lpf(1100)
-    .room(0.88)
-    .decay(1.2)
+    .lpf(1000)
+    .room(0.85)
+    .decay(1.4)
     .gain(0.42),
 
-  // [Step 2 - BASS] Tommy Shannon's Swung Triplet Blues Bass (Press gcc here)
-  // note("<[e1 ~ e1 gs1 ~ gs1 b1 ~ b1 cs2 ~ cs2] [a1 ~ a1 cs2 ~ cs2 e2 ~ e2 fs2 ~ fs2] [e1 ~ e1 gs1 ~ gs1 b1 ~ b1 cs2 ~ cs2]!2 [a1 ~ a1 cs2 ~ cs2 e2 ~ e2 fs2 ~ fs2]!2 [e1 ~ e1 gs1 ~ gs1 b1 ~ b1 cs2 ~ cs2]!2 [b1 ~ b1 ds2 ~ ds2 fs2 ~ fs2 gs2 ~ gs2] [a1 ~ a1 cs2 ~ cs2 e2 ~ e2 fs2 ~ fs2] [e1 ~ e1 gs1 ~ gs1 b1 ~ b1 cs2 ~ cs2] [b1 ~ b1 ds2 ~ ds2 fs2 ~ fs2 gs2 ~ gs2]>").s("triangle").lpf(320).decay(0.6).gain(0.68),
+  // [Step 2 - BASS] Classic Swung Blues Walking / Boogie Bass (Press gcc here)
+  // note("<[d2 fs2 a2 b2] [g1 b1 d2 e2] [d2 fs2 a2 b2]!2 [g1 b1 d2 e2]!2 [d2 fs2 a2 b2]!2 [a1 cs2 e2 fs2] [g1 b1 d2 e2] [d2 fs2 a2 b2] [a1 cs2 e2 fs2]>").s("triangle").lpf(340).decay(0.6).gain(0.68),
 
-  // [Step 3 - SHUFFLE] True 12/8 Texas Triplet Shuffle Cymbal: 1 - a, 2 - a, 3 - a, 4 - a (Press gcc here)
-  // s("[hh ~ hh]!4").gain(0.3),
+  // [Step 3 - SHUFFLE] Swung Triplet Blues Hi-Hat: 1 - a, 2 - a, 3 - a, 4 - a (Press gcc here)
+  // s("[hh ~ hh]!4").gain(0.28),
 
-  // [Step 4 - SNARE] Chris Layton's heavy backbeat snare on 3 with wet hall reverb (Press gcc here)
-  // s("~ ~ sd ~").room(0.85).gain(0.7),
+  // [Step 4 - SNARE] Deep backbeat snare on 2 & 4 with hall reverb (Press gcc here)
+  // s("~ sd ~ sd").room(0.75).gain(0.68),
 
-  // [Step 5 - KICK] Single deep heartbeat pulse on beat 1 (Press gcc here to anchor!)
-  // s("bd ~ ~ ~").lpf(280).gain(0.55),
+  // [Step 5 - KICK] Heartbeat pulse on beat 1 & 3 (Press gcc here to anchor!)
+  // s("bd ~ bd ~").lpf(280).gain(0.55),
 
   // [Step 6 - ORGAN] Hammond B3 Leslie swell (Press gcc here for extra blues soul!)
-  // note("<[e3,b3,d4,gs4] [a2,g3,cs4,e4] [e3,b3,d4,gs4]!2 [a2,g3,cs4,e4]!2 [e3,b3,d4,gs4]!2 [b2,a3,ds4,fs4] [a2,g3,cs4,e4] [e3,b3,d4,gs4] [b2,a3,ds4,fs4]>").s("sine").lpf(sine.range(800, 1600).slow(8)).room(0.9).gain(0.3),
-).cpm(48)
+  // note("<[d3,a3,c4,fs4] [g2,g3,b3,f4] [d3,a3,c4,fs4]!2 [g2,g3,b3,f4]!2 [d3,a3,c4,fs4]!2 [a2,g3,cs4,e4] [g2,g3,b3,f4] [d3,a3,c4,fs4] [a2,g3,cs4,e4]>").s("sine").lpf(sine.range(700, 1500).slow(8)).room(0.9).gain(0.28),
+).cpm(40)
 
 
 // =============================================================================
-// 🌙 BONUS TRACK: "TIN PAN ALLEY" (Laid-Back Slow Late-Night Shuffle — 72 CPM)
+// 🌙 BONUS TRACK: "MIDNIGHT MINOR BLUES" (Gary Moore Style in Bm — 42 CPM)
 // =============================================================================
-// Relaxed, unhurried, spacious slow shuffle. Zero bass clutter, lots of air.
+// Emotional, slow, weeping minor 12-bar blues in Bm (relative minor of D).
 // To switch: Delete Track 1 above (vip then d), uncomment below (vip then gc), <leader>mu!
 // =============================================================================
 
 // stack(
-//   // 1. [ACTIVE] Mellow late-night blues chords
-//   note("<[e3,gs3,d4] [a3,cs4,g4] [e3,gs3,d4]!2 [a3,cs4,g4]!2 [e3,gs3,d4]!2 [b3,ds4,a4] [a3,cs4,g4] [e3,gs3,d4] [b3,ds4,a4]>").s("triangle").lpf(1200).room(0.75).decay(0.9).gain(0.4),
+//   // 1. [ACTIVE] Deep weeping Bm minor blues chords
+//   note("<[b2,d3,fs3,a3]!4 [e2,g3,b3,d4]!2 [b2,d3,fs3,a3]!2 [g2,b2,d3,f3] [fs2,as2,cs3,e3] [b2,d3,fs3,a3] [fs2,as2,cs3,e3]>")
+//     .s("triangle")
+//     .lpf(1100)
+//     .room(0.85)
+//     .decay(1.3)
+//     .gain(0.4),
 // 
-//   // 2. Unhurried bassline (sparse root & 5th notes with space, zero walking clutter!)
-//   note("<[e1 ~ ~ ~ b1 ~ ~ ~]!4 [a1 ~ ~ ~ e2 ~ ~ ~]!2 [e1 ~ ~ ~ b1 ~ ~ ~]!2 [b1 ~ ~ ~ fs2 ~ ~ ~] [a1 ~ ~ ~ e2 ~ ~ ~] [e1 ~ ~ ~ b1 ~ ~ ~] [b1 ~ ~ ~ fs2 ~ ~ ~]>").s("triangle").lpf(340).decay(0.7).gain(0.65),
+//   // 2. Slow melodic minor blues bass (Bm - Em - Bm - G7 - F#7 - Bm - F#7)
+//   note("<[b1 ~ fs2 ~]!4 [e1 ~ b1 ~]!2 [b1 ~ fs2 ~]!2 [g1 ~ d2 ~] [fs1 ~ cs2 ~] [b1 ~ fs2 ~] [fs1 ~ cs2 ~]>")
+//     .s("triangle")
+//     .lpf(320)
+//     .decay(0.7)
+//     .gain(0.65),
 // 
-//   // 3. Relaxed swung hi-hat shuffle: 1 - a, 2 - a, 3 - a, 4 - a
-//   s("[hh ~ hh]!4").gain(0.28),
+//   // 3. Relaxed swung hi-hat shuffle
+//   s("[hh ~ hh]!4").gain(0.26),
 // 
-//   // 4. Subtle acoustic rimshot on beats 2 & 4
-//   s("~ rim ~ rim").room(0.5).gain(0.5),
+//   // 4. Heavy slow backbeat snare on 2 & 4
+//   s("~ sd ~ sd").room(0.8).gain(0.65),
 // 
-//   // 5. Gentle heartbeat kick on beat 1 only
-//   s("bd ~ ~ ~").lpf(300).gain(0.5),
-// ).cpm(72)
+//   // 5. Warm kick pulse on beat 1
+//   s("bd ~ ~ ~").lpf(260).gain(0.55),
+// ).cpm(42)
